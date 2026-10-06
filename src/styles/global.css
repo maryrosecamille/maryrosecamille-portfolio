@@ -519,3 +519,28 @@ html[data-theme-sweep]::view-transition-new(root) {
   from { clip-path: circle(0px at var(--sweep-x, 50%) var(--sweep-y, 50%)); }
   to   { clip-path: circle(var(--sweep-r, 150vmax) at var(--sweep-x, 50%) var(--sweep-y, 50%)); }
 }
+
+
+/* Warm Executive Editorial background */
+body {
+  background:
+    radial-gradient(circle at 88% 10%, rgba(123, 119, 91, 0.10), transparent 28rem),
+    radial-gradient(circle at 8% 78%, rgba(138, 103, 78, 0.07), transparent 30rem),
+    linear-gradient(135deg, #FCF9F4 0%, #F5F0E8 52%, #FAF7F1 100%);
+}
+.hero-canvas { opacity: 0.16; filter: sepia(0.28) saturate(0.55); }
+main::before {
+  content: '';
+  position: fixed;
+  right: -90px;
+  top: 90px;
+  width: 360px;
+  height: 520px;
+  pointer-events: none;
+  opacity: 0.12;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 40% 18%, transparent 0 38%, rgba(123,119,91,.5) 39% 40%, transparent 41%),
+    radial-gradient(ellipse at 65% 48%, transparent 0 42%, rgba(123,119,91,.35) 43% 44%, transparent 45%);
+  transform: rotate(-18deg);
+}
