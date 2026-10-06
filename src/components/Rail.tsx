@@ -54,11 +54,11 @@ export default function Rail() {
         </span>
 
         <h2 className="rail__name">
-          {profile.name}
+          {profile.firstName === 'Camille' ? 'Maryrose Camille' : profile.firstName}
           <SealCheck size={19} weight="fill" aria-label={profile.verifiedLabel} />
         </h2>
         <p className="rail__handle">
-          {profile.handle}
+          <a href={`mailto:${profile.email}`}>{profile.email}</a>
         </p>
 
         <div className="rail__actions">
@@ -110,7 +110,7 @@ export default function Rail() {
         <p className="rail__copy">
           &copy; {new Date().getFullYear()}
           <br />
-          {profile.name}. All rights reserved.
+          Maryrose Camille. All rights reserved.
         </p>
       </div>
     </aside>
