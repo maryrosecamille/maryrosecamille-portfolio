@@ -471,3 +471,67 @@
     min-height: 860px;
   }
 }
+
+
+/* About desktop: one self-contained card including the page heading.
+   Natural document height keeps native mouse-wheel/trackpad scrolling active. */
+@media (min-width: 1100px) {
+  .agrid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    padding-top: clamp(28px, 3vh, 42px);
+    padding-bottom: clamp(80px, 9vh, 120px);
+  }
+
+  .agrid .pgrid__head {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    padding: clamp(34px, 3vw, 48px) clamp(38px, 3.2vw, 54px) 0;
+    border: 1px solid var(--line);
+    border-bottom: 0;
+    border-radius: 28px 28px 0 0;
+    background: rgba(255, 255, 255, 0.68);
+    box-shadow: 0 22px 55px -42px rgba(56, 38, 28, 0.28);
+  }
+
+  .agrid__glass {
+    position: relative;
+    z-index: 1;
+    height: auto !important;
+    min-height: 860px;
+    margin: 0 !important;
+    padding: clamp(30px, 2.7vw, 46px) clamp(38px, 3.2vw, 54px) clamp(48px, 4vw, 68px);
+    border-top: 0;
+    border-radius: 0 0 28px 28px;
+    overflow: hidden;
+  }
+
+  .agrid__copy {
+    align-self: stretch;
+    height: auto;
+  }
+
+  .agrid__bar {
+    margin-top: clamp(34px, 4vh, 54px);
+  }
+
+  .agrid__portrait {
+    height: auto;
+    min-height: 650px;
+    align-self: stretch;
+  }
+}
+
+/* Do not force the About page into a viewport-height shell. */
+html:has(.agrid),
+body:has(.agrid),
+#root:has(.agrid) {
+  min-height: 100%;
+  height: auto;
+  overflow-y: auto;
+}
