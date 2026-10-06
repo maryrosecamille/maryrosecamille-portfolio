@@ -36,7 +36,7 @@ export const profile: Profile = {
   firstName: 'Camille',
   handle: '@maryrose-camille-va',
   role: 'AI-Powered Executive VA',
-  avatarSrc: '/avatar.svg',
+  avatarSrc: '/maryrose-camille.png',
   verifiedLabel: 'Google Workspace & AI workflow trained',
   email: 'maryrosecamille.va@gmail.com',
   location: 'Philippines · GMT+8',
@@ -51,7 +51,7 @@ export const profile: Profile = {
   },
   hero: {
     body: 'I combine executive support, customer-facing operations, technical support, Google Workspace expertise, and AI workflow knowledge to help CEOs, founders, startup executives, consultants, and small-business owners work more efficiently.',
-    portraitSrc: '/avatar.svg',
+    portraitSrc: '/maryrose-camille.png',
     portraitAlt: 'Maryrose Camille Acyatan',
   },
   socials: [
