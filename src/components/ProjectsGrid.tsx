@@ -113,6 +113,33 @@ function AIPreview() {
   )
 }
 
+function AIFlowChart({ onOpen }: { onOpen: (el: HTMLButtonElement) => void }) {
+  const steps = [
+    ['01', 'Meeting notes', 'Capture'],
+    ['02', 'Gemini', 'Synthesize'],
+    ['03', 'Google Sheets', 'Organize'],
+    ['04', 'Gmail', 'Draft'],
+    ['05', 'Human review', 'Approve'],
+  ]
+  return (
+    <button type="button" className="aiflow-card" onClick={(e) => onOpen(e.currentTarget)} aria-haspopup="dialog">
+      <span className="aiflow-card__top">
+        <span><small>Featured AI workflow</small><strong>Meeting → Action Automation</strong></span>
+        <ArrowUpRight size={16} weight="bold" aria-hidden="true" />
+      </span>
+      <span className="aiflow-card__flow" aria-hidden="true">
+        {steps.map(([n, title, verb], i) => (
+          <Fragment key={title}>
+            <span className="aiflow-card__node"><small>{n} · {verb}</small><strong>{title}</strong></span>
+            {i < steps.length - 1 && <span className="aiflow-card__arrow">→</span>}
+          </Fragment>
+        ))}
+      </span>
+      <span className="aiflow-card__foot">Portfolio demonstration · Fictional data · Click to explore the full workflow</span>
+    </button>
+  )
+}
+
 const BUILDS: Project[] = [
   { id: 'ticketing', cat: 'work', index: '03', kicker: 'Portfolio demonstration', title: 'Executive Command Center', desc: 'A Google Workspace concept for tracking priorities, meetings, deadlines, owners, and follow-ups in one executive view.', Icon: Ticket, logos: [GHL], eyebrow: 'Demonstration', Section: TicketingPanel, Preview: () => null },
   { id: 'framework', cat: 'ai', index: '04', kicker: 'Portfolio demonstration', title: 'AI Meeting-to-Action Workflow', desc: 'A Gemini-assisted workflow concept that turns meeting notes into summaries, decisions, action items, and follow-up drafts.', Icon: Robot, logos: [GHL, CODEX], eyebrow: 'Demonstration', Section: FrameworkPanel, Preview: () => null },
@@ -308,6 +335,11 @@ export default function ProjectsGrid() {
           {!projects.some((p) => p.id === 'plan') && stack}
         </div>
       </div>
+
+      <AIFlowChart onOpen={(el) => {
+        const project = BUILDS.find((b) => b.id === 'framework')
+        if (project) show(project, el)
+      }} />
 
       {open && (
         <ProjectModal project={open} onClose={close}>
