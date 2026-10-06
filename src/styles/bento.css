@@ -463,3 +463,36 @@
 .bento__card:hover .bento__fan:has(.bento__photo:only-child) .bento__photo {
   transform: translateY(-4px) scale(1.02);
 }
+
+/* Final editorial refinement */
+.bento__credentials {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-content: center;
+  align-items: center;
+  gap: 8px 10px;
+}
+.bento__credential-mark {
+  grid-row: 1 / 3;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--tint);
+  color: var(--orange-ink);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.bento__credential-copy { display: flex; flex-direction: column; line-height: 1.2; }
+.bento__credential-copy strong { color: var(--navy); font-size: 13px; }
+.bento__credential-copy small { color: var(--muted); font-size: 10.5px; }
+.bento__credentials .bento__badge-tag {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-top: 2px;
+  background: var(--navy);
+}
+.bento__card--about .bento__fan { justify-items: end; padding-right: 12%; }
+.bento__card--about .bento__photo { width: clamp(96px, 7.4vw, 126px) !important; }
+.bento__review { padding: 12px 14px; }
+.bento__review-top b { letter-spacing: -.01em; }
