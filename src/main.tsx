@@ -1,6 +1,6 @@
 import { StrictMode, lazy, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom'
 import App from './App'
 import Home from '@/components/Home'
 import NotFound from '@/components/NotFound'
@@ -67,7 +67,8 @@ createRoot(container).render(
           <Route path="/projects" element={<ProjectsView />} />
           <Route path="/services" element={<ServicesView />} />
           <Route path="/showcase" element={<ShowcaseView />} />
-          <Route path="/testimonials" element={<TestimonialsGrid />} />
+          <Route path="/experience" element={<TestimonialsGrid />} />
+          <Route path="/testimonials" element={<Navigate to="/experience" replace />} />
           <Route path="/about" element={<AboutGrid />} />
           <Route path="/contact" element={<ContactGrid />} />
         </Route>
