@@ -1,6 +1,8 @@
 
 
-const BASE = import.meta.env.BASE_URLexport type AppStat = { value: string; label: string }
+const BASE = import.meta.env.BASE_URL
+
+export type AppStat = { value: string; label: string }
 
 export type AppProject = {
   name: string
