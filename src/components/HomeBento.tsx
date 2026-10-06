@@ -19,6 +19,8 @@ import { gymFunnel, bookingFunnel, websiteFunnel, type Funnel } from '@/data/fun
 import { aiStack, type StackNode } from '@/data/ai-stack'
 import { profile } from '@/data/profile'
 
+const BASE = import.meta.env.BASE_URL
+
 /**
  * Home's showcase: one card per rail view, each an index of what that view
  * holds, each built from content the portfolio already ships. Every card is
@@ -30,7 +32,7 @@ import { profile } from '@/data/profile'
  */
 
 const thumbSrc = (f: Funnel) =>
-  `/home/${f.dir ?? 'funnels'}-${f.file.replace('.html', '.jpeg')}`
+  `${BASE}home/${f.dir ?? 'funnels'}-${f.file.replace('.html', '.jpeg')}`
 
 const PROJECT_SHOTS = [gymFunnel[0], bookingFunnel[0], websiteFunnel[0], gymFunnel[1]].filter(Boolean)
 
@@ -49,7 +51,7 @@ const CLIENTS = [
 ]
 
 // Three photos of you, fanned. Small copies are fine - the fan shows them under 100px.
-const PHOTOS = [profile.avatarSrc, '/avatar.svg?2', '/avatar.svg?3']
+const PHOTOS = [profile.avatarSrc, `${BASE}avatar.svg?2`, `${BASE}avatar.svg?3`]
 
 /** The AI systems as a flat list: every leaf of the Projects tree, in order. */
 const leaves = (n: StackNode): StackNode[] =>
@@ -136,7 +138,7 @@ export default function HomeBento() {
         <CardHead Icon={Medal} title="Credentials" desc="Google Workspace, Gemini, leadership, and professional training." />
         <div className="bento__media bento__badge" aria-hidden="true">
           <span className="bento__badge-ring">
-            <img src="/placeholders/badge.svg" alt="" width={72} height={72} />
+            <img src={`${BASE}placeholders/badge.svg`} alt="" width={72} height={72} />
           </span>
           <span className="bento__badge-tag">
             <SealCheck size={14} weight="fill" />
