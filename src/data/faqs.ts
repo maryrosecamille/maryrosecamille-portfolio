@@ -8,23 +8,23 @@ export type QA = { q: string; a: string }
  */
 export const FAQS: QA[] = [
   {
-    q: 'What do you do?',
-    a: 'PLACEHOLDER - tell me what to put here: the kinds of work you take on, and who it is usually for.',
+    q: 'What kind of support do you offer?',
+    a: 'I focus on executive and administrative support, Google Workspace organization, AI-assisted workflows, client and business operations, and sales or CRM support. The exact scope can be shaped around the executive or team I support.',
   },
   {
-    q: 'How fast can you start?',
-    a: 'PLACEHOLDER - tell me what to put here: your usual lead time for small fixes vs. larger projects, and your working hours.',
+    q: 'What tools do you work with?',
+    a: 'My core toolkit includes Google Workspace, Gemini, ChatGPT, Salesforce, and common productivity workflows. I also have experience across customer operations, technical support, sales, documentation, and cross-team coordination.',
   },
   {
-    q: 'How much do you charge?',
-    a: 'PLACEHOLDER - tell me what to put here: how you price (hourly, per project, retainer) and how a quote is put together.',
+    q: 'Do you have Executive VA experience?',
+    a: 'I am transitioning into Executive Virtual Assistance from application support, administrative support, customer operations, sales, and technical support. The Projects section contains portfolio demonstrations that show how I apply those transferable skills to executive workflows.',
   },
   {
     q: 'Where are you based?',
-    a: 'PLACEHOLDER - tell me what to put here: your location or timezone, and which client timezones you overlap with.',
+    a: 'I am based in the Philippines (GMT+8) and am building my portfolio for remote collaboration.',
   },
   {
-    q: 'What happens after I write?',
-    a: 'PLACEHOLDER - tell me what to put here: how fast you reply and what the next step looks like.',
+    q: 'How can we discuss a role or project?',
+    a: 'Send a short message describing the support you need, your working setup, and the priorities you want help with. You can also contact me directly by email or through LinkedIn.',
   },
 ]
