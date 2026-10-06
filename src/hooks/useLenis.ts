@@ -74,12 +74,18 @@ export function useLenis() {
       const usesPanel = !!panel && window.innerWidth >= 1100
       const content = panel?.firstElementChild as HTMLElement | undefined
 
+      // The desktop shell already uses a native overflow scroller. Keeping
+      // wheel input native is more reliable across browsers and mouse drivers
+      // (and avoids the case where the scrollbar drags correctly but the
+      // mouse wheel appears frozen). Lenis remains useful only for document
+      // scrolling when the shell is not the active scroller.
+      if (usesPanel) {
+        applyShellScroller(ScrollTrigger)
+        cleanup = () => {}
+        return
+      }
+
       const lenis = new Lenis({
-        ...(usesPanel && content ? { wrapper: panel, content } : {}),
-        // Shorter duration + steeper exponential easing makes the wheel feel
-        // responsive instead of heavy. 1.1s read as "the page is sluggish".
-        // 0.9s with a steeper curve still smooths native step jumps but
-        // settles fast enough that input does not feel disconnected.
         duration: 0.9,
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -12 * t)),
         smoothWheel: true,
