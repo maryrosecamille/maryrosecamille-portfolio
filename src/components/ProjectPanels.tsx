@@ -61,7 +61,7 @@ export function BarrelPanel() {
 /** The systems as a logo-first grid, in a scrolling window. */
 export function AIWindow() {
   return (
-    <SectionWindow label="Your systems">
+    <SectionWindow label="Google Workspace + AI Toolkit">
       <AIStackGrid />
     </SectionWindow>
   )
@@ -79,8 +79,8 @@ export function PlanPanel() {
   return (
     <div className="ppanel ppanel--frame">
       <FrameBar
-        host="yourdomain.com"
-        path="/sample-plan"
+        host="maryrose-camille-va"
+        path="/executive-operations-playbook"
       />
       <LiveFrame src="/placeholders/sample-plan.html" title="Sample document" />
     </div>
@@ -92,16 +92,16 @@ export function PlanPanel() {
 type Build = { id: string; label: string; src: string; path: string; Icon: Icon }
 
 const BUILDS: Build[] = [
-  { id: 'ticketing', label: 'Featured Project One', src: '/placeholders/sample-plan.html?doc=1', path: '/featured-one', Icon: Ticket },
-  { id: 'framework', label: 'Featured Project Two', src: '/placeholders/sample-plan.html?doc=2', path: '/featured-two', Icon: Robot },
-  { id: 'workflow', label: 'Featured Project Three', src: '/placeholders/sample-plan.html?doc=3', path: '/featured-three', Icon: FlowArrow },
+  { id: 'ticketing', label: 'Executive Command Center — Portfolio Demonstration', src: '/placeholders/sample-plan.html?doc=1', path: '/demo/executive-command-center', Icon: Ticket },
+  { id: 'framework', label: 'AI Meeting-to-Action Workflow — Portfolio Demonstration', src: '/placeholders/sample-plan.html?doc=2', path: '/demo/meeting-to-action', Icon: Robot },
+  { id: 'workflow', label: 'Executive Inbox & Follow-Up System — Portfolio Demonstration', src: '/placeholders/sample-plan.html?doc=3', path: '/demo/inbox-follow-up', Icon: FlowArrow },
 ]
 
 /** One build, framed, open on arrival. */
 function BuildPanel({ build }: { build: Build }) {
   return (
     <div className="ppanel ppanel--frame">
-      <FrameBar host="yourdomain.com" path={build.path} />
+      <FrameBar host="maryrose-camille-va" path={build.path} />
       <LiveFrame src={build.src} title={build.label} />
     </div>
   )
