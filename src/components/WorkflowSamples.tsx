@@ -22,14 +22,13 @@ import { X } from '@/components/slab'
 type Sample = { file: string; label: string }
 
 const SAMPLES: Sample[] = [
-  { file: 'project-1.jpg', label: 'Project Screenshot 1' },
-  { file: 'project-2.jpg', label: 'Project Screenshot 2' },
-  { file: 'project-3.jpg', label: 'Project Screenshot 3' },
-  { file: 'project-4.jpg', label: 'Project Screenshot 4' },
+  { file: 'executive-calendar.png', label: 'Executive Calendar Management' },
+  { file: 'executive-inbox.png', label: 'Executive Inbox & Email Management' },
+  { file: 'executive-tasks.png', label: 'Executive Task & Priority Tracker' },
 ]
 
 const BASE = import.meta.env.BASE_URL
-const srcOf = (s: Sample) => `${BASE}placeholders/${encodeURIComponent(s.file)}`
+const srcOf = (s: Sample) => `${BASE}portfolio/${encodeURIComponent(s.file)}`
 
 export default function WorkflowSamples() {
   const doubled = useMemo(() => [...SAMPLES, ...SAMPLES], [])
@@ -65,7 +64,7 @@ export default function WorkflowSamples() {
   return (
     <section className="wfs" id="workflow-samples" aria-labelledby="wfs-heading" data-reveal>
       <p className="wfs__caption" id="wfs-heading">
-        PLACEHOLDER - tell me what to put here: one line on what these screenshots show.
+        Executive operations portfolio demonstrations · Fictional sample data
       </p>
 
       <div className="wfs__strip">
