@@ -51,8 +51,8 @@ export function HomeStats() {
 const TILES = [
   { n: '01', label: 'Projects', to: '/projects', title: 'Executive operations, made visible', desc: 'Three practical demonstrations covering executive organization, meetings, inboxes, and AI-assisted workflows.', img: profile.avatarSrc },
   { n: '02', label: 'Services', to: '/services', title: 'Support that keeps work moving', desc: 'Executive support, Google Workspace, AI-assisted workflows, operations, and CRM support.', Icon: Stack },
-  { n: '03', label: 'AI Workflow', to: '/projects', title: 'Meeting-to-Action', desc: 'See how meeting notes become summaries, decisions, action items, and follow-up drafts.', Icon: Robot, accent: true },
-  { n: '04', label: 'Experience', to: '/testimonials', title: 'Operations, support & credentials', desc: 'Professional experience backed by Google Workspace, Gemini, and leadership training.', img: `${BASE}placeholders/testimonial-1.jpg` },
+  { n: '03', label: 'AI Workflows', to: '/ai-workflows', title: 'Practical AI for executive work', desc: 'Gemini, ChatGPT, and Google Workspace applied to communication, documentation, organization, and follow-through.', Icon: Robot, accent: true },
+  { n: '04', label: 'Experience', to: '/experience', title: 'Operations, support & credentials', desc: 'Professional experience backed by Google Workspace, Gemini, and leadership training.', Icon: SealCheck },
   { n: '05', label: 'About', to: '/about', title: `Hi, I'm ${profile.firstName}.`, desc: 'Operations, technical support, Google Workspace, and AI brought into executive support.', img: profile.avatarSrc },
 ] as const
 
