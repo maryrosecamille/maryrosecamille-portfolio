@@ -106,7 +106,7 @@ export default function ContactGrid() {
           <div className="cgrid__direct">
             <a className="cgrid__mail" href={`mailto:${profile.email}`}>
               <EnvelopeSimple size={16} weight="fill" aria-hidden="true" />
-              <span>{profile.email}</span>
+              <span>Email me · {profile.email}</span>
             </a>
             <ul className="cgrid__socials" role="list">
               {profile.socials.map((s) => (
@@ -197,7 +197,7 @@ export default function ContactGrid() {
                     {status.note}
                   </span>
                 ) : (
-                  <span className="cgrid__hint">You can also email me directly or connect on LinkedIn.</span>
+                  <span className="cgrid__hint">Prefer email? Use the direct email link. LinkedIn is available as a secondary option.</span>
                 )}
               </div>
             </form>
