@@ -167,7 +167,7 @@ export default function HomeBento() {
       </Link>
 
       {/* Testimonials: client cards drifting up a clipped column. */}
-      <Link to="/testimonials" className="bento__card bento__card--quotes">
+      <Link to="/experience" className="bento__card bento__card--quotes">
         <CardHead Icon={Quotes} title="Experience" desc="Application support, administration, client operations, sales, and technical support." />
         <div className="bento__media bento__reviews" aria-hidden="true">
           <div className="bento__reviews-track">
