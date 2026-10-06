@@ -752,3 +752,34 @@ body:has(.bento--projects),
   .aicase__grid { grid-template-columns:1fr; }
   .aicase__email-head { flex-direction:column; gap:5px; }
 }
+
+
+/* Featured AI flowchart fills the open space below the project grid. */
+.aiflow-card {
+  width: 100%;
+  margin-top: clamp(16px, 2vw, 24px);
+  padding: clamp(18px, 2vw, 26px);
+  border: 1px solid rgba(59,43,36,.12);
+  border-radius: 22px;
+  background: linear-gradient(120deg, rgba(255,255,255,.72), rgba(245,240,232,.9));
+  color: var(--navy);
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 18px 44px -36px rgba(59,43,36,.35);
+}
+.aiflow-card__top { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.aiflow-card__top > span { display:flex; flex-direction:column; gap:3px; }
+.aiflow-card__top small { color:var(--orange-ink); font-size:10px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; }
+.aiflow-card__top strong { font-family:var(--font-display); font-size:clamp(18px,1.7vw,26px); }
+.aiflow-card__top > svg { flex:none; }
+.aiflow-card__flow { display:grid; grid-template-columns:1fr auto 1fr auto 1fr auto 1fr auto 1fr; align-items:center; gap:8px; margin:18px 0 14px; }
+.aiflow-card__node { min-width:0; padding:13px 12px; border:1px solid var(--line); border-radius:13px; background:var(--paper); }
+.aiflow-card__node small { display:block; margin-bottom:4px; color:var(--muted); font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; }
+.aiflow-card__node strong { display:block; font-size:12px; line-height:1.25; }
+.aiflow-card__arrow { color:var(--orange-ink); font-size:18px; font-weight:700; }
+.aiflow-card__foot { color:var(--muted); font-size:11px; line-height:1.5; }
+.aiflow-card:hover { border-color:rgba(138,103,78,.34); transform:translateY(-1px); }
+@media (max-width: 760px) {
+  .aiflow-card__flow { grid-template-columns:1fr; }
+  .aiflow-card__arrow { transform:rotate(90deg); justify-self:center; line-height:1; }
+}
