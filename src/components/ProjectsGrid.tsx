@@ -114,28 +114,41 @@ function AIPreview() {
 }
 
 function AIAutomationDemo({ onOpen }: { onOpen: (el: HTMLButtonElement) => void }) {
-  const steps = [
-    ['TRIGGER', 'Meeting notes', 'New notes added'],
-    ['AI', 'Gemini', 'Extract actions'],
-    ['ACTION', 'Google Sheets', 'Create task rows'],
-    ['ACTION', 'Gmail', 'Create draft'],
-    ['CHECK', 'Human review', 'Approve before send'],
-  ]
   return (
     <button type="button" className="aiauto-card" onClick={(e) => onOpen(e.currentTarget)} aria-haspopup="dialog">
       <span className="aiauto-card__top">
         <span><small>Sample AI automation</small><strong>Executive Meeting Automation</strong></span>
         <ArrowUpRight size={16} weight="bold" aria-hidden="true" />
       </span>
-      <span className="aiauto-card__flow" aria-hidden="true">
-        {steps.map(([n, title, verb], i) => (
-          <Fragment key={title}>
-            <span className="aiauto-card__node"><small>{n} · {verb}</small><strong>{title}</strong></span>
-            {i < steps.length - 1 && <span className="aiauto-card__arrow">→</span>}
-          </Fragment>
-        ))}
+
+      <span className="aiauto-canvas" aria-label="Automation diagram">
+        <span className="aiauto-node aiauto-node--trigger">
+          <span className="aiauto-icon">01</span><span><small>Trigger</small><strong>Meeting Notes</strong><em>New notes added</em></span>
+        </span>
+        <span className="aiauto-line aiauto-line--one" aria-hidden="true" />
+        <span className="aiauto-node aiauto-node--agent">
+          <span className="aiauto-icon">AI</span><span><small>AI Agent</small><strong>Gemini</strong><em>Extract decisions + actions</em></span>
+        </span>
+        <span className="aiauto-line aiauto-line--two" aria-hidden="true" />
+        <span className="aiauto-node aiauto-node--router">
+          <span className="aiauto-icon">↳</span><span><small>Automation</small><strong>Route Output</strong><em>Create structured actions</em></span>
+        </span>
+
+        <span className="aiauto-branch aiauto-branch--left" aria-hidden="true" />
+        <span className="aiauto-branch aiauto-branch--right" aria-hidden="true" />
+        <span className="aiauto-node aiauto-node--sheet">
+          <span className="aiauto-icon">S</span><span><small>Action</small><strong>Google Sheets</strong><em>Create task rows</em></span>
+        </span>
+        <span className="aiauto-node aiauto-node--gmail">
+          <span className="aiauto-icon">@</span><span><small>Action</small><strong>Gmail</strong><em>Create follow-up draft</em></span>
+        </span>
+        <span className="aiauto-line aiauto-line--review" aria-hidden="true" />
+        <span className="aiauto-node aiauto-node--review">
+          <span className="aiauto-icon">✓</span><span><small>Approval</small><strong>Human Review</strong><em>Verify before send</em></span>
+        </span>
       </span>
-      <span className="aiauto-card__foot">Automation logic demo · Fictional data · Trigger → AI processing → automated actions → approval</span>
+
+      <span className="aiauto-card__foot">Fictional automation demo · Trigger → AI agent → routed actions → approval</span>
     </button>
   )
 }
