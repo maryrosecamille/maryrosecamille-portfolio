@@ -686,3 +686,69 @@ body:has(.bento--projects),
   min-height: 100%;
   overflow-y: auto;
 }
+
+
+/* AI Meeting → Action case study */
+.aicase {
+  width: min(1040px, 100%);
+  margin: 0 auto;
+  padding: clamp(22px, 4vw, 50px);
+  color: var(--navy);
+}
+.aicase__eyebrow, .aicase__label {
+  display: block;
+  color: var(--orange-ink);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+.aicase > h2 {
+  margin: 8px 0 12px;
+  max-width: 18ch;
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.04;
+}
+.aicase__lede { max-width: 790px; margin: 0 0 30px; color: var(--muted); font-size: 16px; line-height: 1.65; }
+.aicase__flow { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 9px; margin-bottom: 22px; }
+.aicase__step {
+  position: relative; min-width: 0; padding: 15px; border-radius: 15px;
+  background: linear-gradient(145deg,var(--paper),var(--tint)); box-shadow: inset 0 0 0 1px var(--line);
+}
+.aicase__step > span { display:block; margin-bottom: 16px; color:var(--orange-ink); font-size:10px; font-weight:700; letter-spacing:.1em; }
+.aicase__step strong { display:block; font-size:14px; }
+.aicase__step small { display:block; margin-top:4px; color:var(--muted); font-size:11px; }
+.aicase__grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+.aicase__card, .aicase__summary, .aicase__tracker, .aicase__email, .aicase__guardrail {
+  padding: clamp(18px,2.2vw,24px); border-radius:18px; border:1px solid var(--line); background:rgba(255,255,255,.48);
+}
+.aicase__card h3, .aicase__summary h3, .aicase__tracker h3 { margin:8px 0 8px; font-size:18px; }
+.aicase__card p, .aicase__summary p, .aicase__email p, .aicase__guardrail p, .aicase__proof p { margin:0; color:var(--muted); font-size:14px; line-height:1.65; }
+.aicase__card--prompt { background:linear-gradient(145deg,var(--tint),var(--paper)); }
+.aicase__summary { margin-top:12px; background:linear-gradient(120deg,rgba(255,255,255,.7),var(--tint)); }
+.aicase__tracker { margin-top:12px; overflow:hidden; }
+.aicase__tracker-head { display:flex; align-items:end; justify-content:space-between; gap:16px; margin-bottom:12px; }
+.aicase__tracker-head h3 { margin-bottom:0; }
+.aicase__demo { flex:none; padding:5px 9px; border-radius:999px; background:var(--tint); color:var(--muted); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; }
+.aicase__table { min-width:650px; border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+.aicase__tracker { overflow-x:auto; }
+.aicase__tr { display:grid; grid-template-columns:2fr 1fr .8fr .8fr; }
+.aicase__tr span { padding:10px 12px; border-top:1px solid var(--line); font-size:12px; }
+.aicase__tr span + span { border-left:1px solid var(--line); }
+.aicase__th span { border-top:0; background:var(--tint); color:var(--muted); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; }
+.aicase__email { margin-top:12px; }
+.aicase__email-head { display:flex; justify-content:space-between; gap:16px; margin:9px 0 14px; font-size:13px; }
+.aicase__email-head span { color:var(--muted); font-size:11px; white-space:nowrap; }
+.aicase__guardrail { margin-top:12px; border-left:3px solid var(--orange-ink); background:var(--tint); }
+.aicase__guardrail strong { display:block; margin-bottom:7px; font-size:15px; }
+.aicase__proof { margin-top:24px; }
+.aicase__proof strong { display:block; margin-bottom:7px; }
+@media (max-width: 720px) {
+  .aicase__flow { grid-template-columns:1fr; }
+  .aicase__step { display:grid; grid-template-columns:28px 1fr; align-items:center; column-gap:8px; }
+  .aicase__step > span { grid-row:1 / 3; margin:0; }
+  .aicase__step small { margin-top:2px; }
+  .aicase__grid { grid-template-columns:1fr; }
+  .aicase__email-head { flex-direction:column; gap:5px; }
+}
