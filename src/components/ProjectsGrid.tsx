@@ -6,6 +6,8 @@ import { AutomationsPanel, PlanPanel, TicketingPanel, FrameworkPanel, WorkflowPa
 import { aiStack, type StackNode } from '@/data/ai-stack'
 import { useIsPhone } from '@/hooks/useMediaQuery'
 
+const BASE = import.meta.env.BASE_URL
+
 /**
  * Projects, as one viewport in Home's bento language: a glass panel of six
  * cards, each previewing its own body of work with a live inner track, each
@@ -43,13 +45,13 @@ const FILTERS: { key: Cat | 'all'; label: string }[] = [
 ]
 
 /** Example tool marks, from public/icons. Swap for what you build with. */
-const GHL = '/icons/googleworkspace.svg'
-const CODEX = '/icons/openai.svg'
+const GHL = `${BASE}icons/googleworkspace.svg`
+const CODEX = `${BASE}icons/openai.svg`
 
 const leaves = (n: StackNode): StackNode[] => (n.children?.length ? n.children.flatMap(leaves) : [n])
 
 const WF_SHOTS = ['project-1.jpg', 'project-2.jpg', 'project-3.jpg', 'project-4.jpg'].map(
-  (f) => `/placeholders/${f}`,
+  (f) => `${BASE}placeholders/${f}`,
 )
 
 const AI_LEAVES = leaves(aiStack)
