@@ -3,8 +3,6 @@ import { createPortal } from 'react-dom'
 import { ArrowUpRight, X, Ticket, Robot, FlowArrow, CursorClick } from '@/components/slab'
 import { FlowIcon, PlanIcon, SparkIcon } from './ProjectIcons'
 import { AutomationsPanel, PlanPanel, TicketingPanel, FrameworkPanel, WorkflowPanel, AIWindow } from './ProjectPanels'
-import { gymFunnel, bookingFunnel, websiteFunnel, type Funnel } from '@/data/funnels'
-import { mobileApps } from '@/data/projects'
 import { aiStack, type StackNode } from '@/data/ai-stack'
 import { useIsPhone } from '@/hooks/useMediaQuery'
 
@@ -53,24 +51,6 @@ const WF_SHOTS = ['project-1.jpg', 'project-2.jpg', 'project-3.jpg', 'project-4.
   (f) => `/placeholders/${f}`,
 )
 
-const FUNNEL_SHOTS = [gymFunnel[0], bookingFunnel[0], websiteFunnel[0]].filter(Boolean)
-const thumbSrc = (f: Funnel) => `/${f.dir ?? 'funnels'}/thumbs/${f.file.replace('.html', '.jpeg')}`
-
-const APP_SHOTS = [
-  ...mobileApps.map((a) => a.imageSrc).filter((s): s is string => !!s),
-  '/placeholders/extension-1.jpg',
-  '/placeholders/extension-2.jpg',
-]
-
-/** The three featured builds: each its own card in the stack, each its own
- *  pop-up. */
-const BUILDS: Project[] = [
-  { id: 'ticketing', cat: 'work', index: '03', kicker: 'Portfolio demonstration', title: 'Executive Command Center', desc: 'A Google Workspace concept for tracking priorities, meetings, deadlines, owners, and follow-ups in one executive view.', Icon: () => <Ticket size={20} weight="duotone" />, logos: [GHL], eyebrow: 'Demonstration', Section: TicketingPanel, Preview: () => null },
-  { id: 'framework', cat: 'ai', index: '04', kicker: 'Portfolio demonstration', title: 'AI Meeting-to-Action Workflow', desc: 'A Gemini-assisted workflow concept that turns meeting notes into summaries, decisions, action items, and follow-up drafts.', Icon: () => <Robot size={20} weight="duotone" />, logos: [CLAUDE_CODE, CODEX], eyebrow: 'Demonstration', Section: FrameworkPanel, Preview: () => null },
-  { id: 'workflow', cat: 'work', index: '05', kicker: 'Portfolio demonstration', title: 'Executive Inbox & Follow-Up System', desc: 'A structured Gmail workflow concept for prioritizing messages, drafting responses, flagging decisions, and tracking follow-ups.', Icon: () => <FlowArrow size={20} weight="duotone" />, logos: [GHL], eyebrow: 'Demonstration', Section: WorkflowPanel, Preview: () => null },
-]
-
-const leaves = (n: StackNode): StackNode[] => (n.children?.length ? n.children.flatMap(leaves) : [n])
 const AI_LEAVES = leaves(aiStack)
 
 /* ---------- Previews ---------- */
