@@ -28,19 +28,19 @@ export default function AboutGrid() {
         <span className="pgrid__eyebrow">About</span>
         <h1 className="pgrid__title" id="about-title">{`Hi, I’m ${profile.firstName}.`}</h1>
         <p className="pgrid__lede">
-          From customer operations and technical support to AI-powered executive operations.
+          A support professional bringing operations, technology, and AI into executive work.
         </p>
       </header>
 
       <div className="home__glass agrid__glass">
         <div className="agrid__copy">
           <p className="agrid__lead">
-            I bring customer operations, sales, administrative support, and technical problem-solving together.
-            <span> Now I’m applying that experience to executive support powered by Google Workspace and AI.</span>
+            My background spans customer operations, sales, administrative support, and technical problem-solving.
+            <span> I’m now bringing those strengths into executive support with Google Workspace and practical AI workflows.</span>
           </p>
 
           <p className="agrid__note">
-            I currently work as an <strong>Application Support Engineer at Accenture</strong>, supporting Google as part of the Quota Increase team and working with Salesforce. My background has built strong habits in client communication, documentation, follow-ups, cross-team coordination, and problem solving.
+            I currently work as an <strong>Application Support Engineer at Accenture</strong>, supporting Google as part of the Quota Increase team, with Salesforce in the support workflow. Across my roles, I’ve built strong habits around clear communication, documentation, follow-through, cross-team coordination, and structured problem solving.
           </p>
 
           <ul className="agrid__caps" role="list">
