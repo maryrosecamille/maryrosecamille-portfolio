@@ -87,7 +87,7 @@ export default function HomeBento() {
     <nav className="bento" aria-label="Explore the portfolio">
       {/* Projects: the funnel thumbnails drift upward on a looped track. */}
       <Link to="/projects" className="bento__card bento__card--projects">
-        <CardHead Icon={FolderOpen} title="Projects" desc="PLACEHOLDER - one line on what your projects are." />
+        <CardHead Icon={FolderOpen} title="Projects" desc="Executive operations and AI-assisted workflow demonstrations." />
         <div className="bento__media bento__reel" aria-hidden="true">
           <div className="bento__reel-track">
             {[...PROJECT_SHOTS, ...PROJECT_SHOTS].map((f, i) => (
@@ -101,7 +101,7 @@ export default function HomeBento() {
 
       {/* About: a fanned stack of photos. */}
       <Link to="/about" className="bento__card bento__card--about">
-        <CardHead Icon={User} title="About" desc="PLACEHOLDER - one line about you." />
+        <CardHead Icon={User} title="About" desc="Operations, technical support, Google Workspace, and AI brought into executive support." />
         <div className="bento__media bento__fan" aria-hidden="true">
           {PHOTOS.map((src, i) => (
             <span key={src} className="bento__photo" style={{ ['--i' as string]: i }}>
@@ -114,7 +114,7 @@ export default function HomeBento() {
       {/* AI builds: the systems from the Projects tree, two chip rows
           scrolling against each other. */}
       <Link to="/projects" className="bento__card bento__card--ai">
-        <CardHead Icon={Robot} title="AI Builds" desc="PLACEHOLDER - one line on your AI or side builds." />
+        <CardHead Icon={Robot} title="AI Workflows" desc="Gemini, ChatGPT, and Google Workspace applied to practical executive workflows." />
         <div className="bento__media bento__chips" aria-hidden="true">
           {toolRows.map((row, r) => (
             <div key={r} className="bento__chip-row" data-dir={r ? 'right' : 'left'}>
@@ -174,11 +174,7 @@ export default function HomeBento() {
             {[...CLIENTS, ...CLIENTS].map((c, i) => (
               <span key={i} className="bento__review">
                 <span className="bento__review-top">
-                  {c.logo ? (
-                    <img src={c.logo} alt="" width={18} height={18} />
-                  ) : (
-                    <Quotes size={14} weight="fill" />
-                  )}
+                  <Quotes size={14} weight="fill" />
                   <b>{c.name}</b>
                 </span>
                 <span className="bento__review-role">{c.role}</span>
