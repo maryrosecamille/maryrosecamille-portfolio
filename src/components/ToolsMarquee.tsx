@@ -1,18 +1,20 @@
 import { useMemo } from 'react'
 
+const BASE = import.meta.env.BASE_URL
+
 type Tool = { name: string; iconPath: string; color?: string }
 
 export const tools: Tool[] = [
-  { name: 'Google Workspace', iconPath: '/icons/googleworkspace.svg' },
-  { name: 'Gemini', iconPath: '/icons/googleworkspace.svg' },
-  { name: 'ChatGPT', iconPath: '/icons/openai.svg', color: '#000000' },
-  { name: 'Gmail', iconPath: '/icons/googleworkspace.svg' },
-  { name: 'Google Calendar', iconPath: '/icons/googleworkspace.svg' },
-  { name: 'Google Drive', iconPath: '/icons/googleworkspace.svg' },
-  { name: 'Google Docs', iconPath: '/icons/googleworkspace.svg' },
-  { name: 'Google Sheets', iconPath: '/icons/googleworkspace.svg' },
-  { name: 'Google Forms', iconPath: '/icons/googleworkspace.svg' },
-  { name: 'Apps Script', iconPath: '/icons/googleworkspace.svg' },
+  { name: 'Google Workspace', iconPath: `${BASE}icons/googleworkspace.svg` },
+  { name: 'Gemini', iconPath: `${BASE}icons/googleworkspace.svg` },
+  { name: 'ChatGPT', iconPath: `${BASE}icons/openai.svg`, color: '#000000' },
+  { name: 'Gmail', iconPath: `${BASE}icons/googleworkspace.svg` },
+  { name: 'Google Calendar', iconPath: `${BASE}icons/googleworkspace.svg` },
+  { name: 'Google Drive', iconPath: `${BASE}icons/googleworkspace.svg` },
+  { name: 'Google Docs', iconPath: `${BASE}icons/googleworkspace.svg` },
+  { name: 'Google Sheets', iconPath: `${BASE}icons/googleworkspace.svg` },
+  { name: 'Google Forms', iconPath: `${BASE}icons/googleworkspace.svg` },
+  { name: 'Apps Script', iconPath: `${BASE}icons/googleworkspace.svg` },
 ]
 
 export default function ToolsMarquee() {
