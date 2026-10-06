@@ -286,3 +286,30 @@
   .home__title { font-size: clamp(30px, 3vw, 58px); max-width: 100%; }
   .home__headline { overflow: visible; }
 }
+
+/* Final home hierarchy and marquee polish */
+@media (min-width: 1100px) {
+  .home__title {
+    font-size: clamp(30px, 2.65vw, 50px);
+    line-height: 1.02;
+    max-width: 22ch;
+    letter-spacing: -0.045em;
+  }
+  .home__lede { max-width: 76ch; }
+}
+.home .tools-marquee {
+  overflow: hidden;
+  position: relative;
+}
+.home .tools-marquee::before,
+.home .tools-marquee::after {
+  content: '';
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  bottom: 0;
+  width: 34px;
+  pointer-events: none;
+}
+.home .tools-marquee::before { left: 0; background: linear-gradient(90deg, var(--paper), transparent); }
+.home .tools-marquee::after { right: 0; background: linear-gradient(270deg, var(--paper), transparent); }
