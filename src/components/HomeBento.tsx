@@ -116,7 +116,7 @@ export default function HomeBento() {
 
       {/* AI builds: the systems from the Projects tree, two chip rows
           scrolling against each other. */}
-      <Link to="/projects" className="bento__card bento__card--ai">
+      <Link to="/ai-workflows" className="bento__card bento__card--ai">
         <CardHead Icon={Robot} title="AI Workflows" desc="Gemini, ChatGPT, and Google Workspace applied to practical executive workflows." />
         <div className="bento__media bento__chips" aria-hidden="true">
           {toolRows.map((row, r) => (
@@ -135,7 +135,7 @@ export default function HomeBento() {
       </Link>
 
       {/* Credentials: the badge that matters, on its plate. */}
-      <Link to="/about" className="bento__card bento__card--creds">
+      <Link to="/experience" className="bento__card bento__card--creds">
         <CardHead Icon={Medal} title="Credentials" desc="Google Workspace, Gemini, leadership, and professional training." />
         <div className="bento__media bento__credentials" aria-hidden="true">
           <span className="bento__credential-mark">
