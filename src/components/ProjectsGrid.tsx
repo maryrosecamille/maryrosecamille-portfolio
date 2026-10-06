@@ -113,29 +113,29 @@ function AIPreview() {
   )
 }
 
-function AIFlowChart({ onOpen }: { onOpen: (el: HTMLButtonElement) => void }) {
+function AIAutomationDemo({ onOpen }: { onOpen: (el: HTMLButtonElement) => void }) {
   const steps = [
-    ['01', 'Meeting notes', 'Capture'],
-    ['02', 'Gemini', 'Synthesize'],
-    ['03', 'Google Sheets', 'Organize'],
-    ['04', 'Gmail', 'Draft'],
-    ['05', 'Human review', 'Approve'],
+    ['TRIGGER', 'Meeting notes', 'New notes added'],
+    ['AI', 'Gemini', 'Extract actions'],
+    ['ACTION', 'Google Sheets', 'Create task rows'],
+    ['ACTION', 'Gmail', 'Create draft'],
+    ['CHECK', 'Human review', 'Approve before send'],
   ]
   return (
-    <button type="button" className="aiflow-card" onClick={(e) => onOpen(e.currentTarget)} aria-haspopup="dialog">
-      <span className="aiflow-card__top">
-        <span><small>Featured AI workflow</small><strong>Meeting → Action Automation</strong></span>
+    <button type="button" className="aiauto-card" onClick={(e) => onOpen(e.currentTarget)} aria-haspopup="dialog">
+      <span className="aiauto-card__top">
+        <span><small>Sample AI automation</small><strong>Executive Meeting Automation</strong></span>
         <ArrowUpRight size={16} weight="bold" aria-hidden="true" />
       </span>
-      <span className="aiflow-card__flow" aria-hidden="true">
+      <span className="aiauto-card__flow" aria-hidden="true">
         {steps.map(([n, title, verb], i) => (
           <Fragment key={title}>
-            <span className="aiflow-card__node"><small>{n} · {verb}</small><strong>{title}</strong></span>
-            {i < steps.length - 1 && <span className="aiflow-card__arrow">→</span>}
+            <span className="aiauto-card__node"><small>{n} · {verb}</small><strong>{title}</strong></span>
+            {i < steps.length - 1 && <span className="aiauto-card__arrow">→</span>}
           </Fragment>
         ))}
       </span>
-      <span className="aiflow-card__foot">Portfolio demonstration · Fictional data · Click to explore the full workflow</span>
+      <span className="aiauto-card__foot">Automation logic demo · Fictional data · Trigger → AI processing → automated actions → approval</span>
     </button>
   )
 }
@@ -333,13 +333,12 @@ export default function ProjectsGrid() {
             </Fragment>
           ))}
           {!projects.some((p) => p.id === 'plan') && stack}
+          <AIAutomationDemo onOpen={(el) => {
+            const project = BUILDS.find((b) => b.id === 'framework')
+            if (project) show(project, el)
+          }} />
         </div>
       </div>
-
-      <AIFlowChart onOpen={(el) => {
-        const project = BUILDS.find((b) => b.id === 'framework')
-        if (project) show(project, el)
-      }} />
 
       {open && (
         <ProjectModal project={open} onClose={close}>
