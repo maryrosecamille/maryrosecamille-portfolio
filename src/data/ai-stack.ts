@@ -10,6 +10,8 @@ import {
 import type { Icon } from '@/components/slab'
 import { profile } from '@/data/profile'
 
+const BASE = import.meta.env.BASE_URL
+
 export type StackStatus = 'Live' | 'Internal' | 'Beta'
 export type StackLogo = { src: string; name: string }
 export type StackNode = {
@@ -23,8 +25,8 @@ export type StackNode = {
   children?: StackNode[]
 }
 
-const GOOGLE: StackLogo = { src: '/icons/googleworkspace.svg', name: 'Google Workspace' }
-const OPENAI: StackLogo = { src: '/icons/openai.svg', name: 'ChatGPT' }
+const GOOGLE: StackLogo = { src: `${BASE}icons/googleworkspace.svg`, name: 'Google Workspace' }
+const OPENAI: StackLogo = { src: `${BASE}icons/openai.svg`, name: 'ChatGPT' }
 
 export const aiStack: StackNode = {
   id: 'root',
