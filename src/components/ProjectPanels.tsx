@@ -135,71 +135,75 @@ export const TicketingPanel = () => (
   </SectionWindow>
 )
 export const FrameworkPanel = () => (
-  <SectionWindow label="AI Meeting-to-Action Workflow · Portfolio Demonstration">
-    <article style={{ padding: 'clamp(20px, 4vw, 48px)', maxWidth: 980, margin: '0 auto' }}>
-      <p style={{ margin: '0 0 8px', fontSize: 12, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', opacity: .6 }}>Portfolio Demonstration · Fictional meeting data</p>
-      <h2 style={{ margin: '0 0 14px', fontSize: 'clamp(28px, 4vw, 46px)', lineHeight: 1.05 }}>AI Meeting-to-Action Workflow</h2>
-      <p style={{ margin: '0 0 28px', maxWidth: 780, fontSize: 16, lineHeight: 1.65, opacity: .78 }}>A practical executive-support workflow showing how meeting notes can be transformed with Gemini or ChatGPT into a concise executive summary, decision log, assigned action items, and a ready-to-review follow-up email.</p>
+  <SectionWindow label="AI Executive Meeting → Action Workflow · Portfolio Demonstration">
+    <article className="aicase">
+      <p className="aicase__eyebrow">Portfolio Demonstration · Fictional data</p>
+      <h2>AI Executive Meeting → Action Workflow</h2>
+      <p className="aicase__lede">A sample human-in-the-loop workflow showing how I would turn meeting notes into an executive-ready summary, a structured action tracker, and a Gmail follow-up draft using Google Workspace, Gemini, and AI-assisted prompting.</p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(130px,1fr))', gap: 10, marginBottom: 30 }}>
-        {['Meeting notes','AI synthesis','Decisions','Action items','Follow-up'].map((step, i) => (
-          <div key={step} style={{ padding: 15, border: '1px solid color-mix(in srgb, currentColor 14%, transparent)', borderRadius: 14 }}>
-            <span style={{ display: 'block', fontSize: 11, fontWeight: 700, opacity: .5 }}>0{i + 1}</span>
-            <strong style={{ display: 'block', marginTop: 5, fontSize: 14 }}>{step}</strong>
+      <div className="aicase__flow" aria-label="Workflow stages">
+        {[
+          ['01','Capture','Google Meet / notes'],
+          ['02','Synthesize','Gemini'],
+          ['03','Organize','Google Sheets'],
+          ['04','Draft','Gmail'],
+          ['05','Review','Human approval'],
+        ].map(([n,title,tool]) => (
+          <div className="aicase__step" key={n}>
+            <span>{n}</span><strong>{title}</strong><small>{tool}</small>
           </div>
         ))}
       </div>
 
-      <section style={{ marginBottom: 18, padding: 22, borderRadius: 18, background: 'color-mix(in srgb, currentColor 5%, transparent)' }}>
-        <p style={{ margin: '0 0 6px', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', opacity: .55 }}>Fictional scenario</p>
-        <h3 style={{ margin: '0 0 10px', fontSize: 19 }}>Weekly Operations Meeting · Northstar Consulting</h3>
-        <p style={{ margin: 0, lineHeight: 1.6, opacity: .74 }}>The founder and operations team review a client onboarding delay, an upcoming proposal deadline, and preparation for Friday’s leadership review. The executive needs the important information without rereading a full transcript.</p>
-      </section>
-
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: 14 }}>
-        <section style={{ padding: 20, border: '1px solid color-mix(in srgb, currentColor 12%, transparent)', borderRadius: 18 }}>
-          <h3 style={{ margin: '0 0 10px', fontSize: 17 }}>Raw meeting notes</h3>
-          <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, opacity: .7 }}>Acme onboarding is waiting on signed access forms. Camille to follow up with the client contact today. Founder wants the Meridian proposal ready by Thursday afternoon for review. Revenue dashboard needs the September figures before Friday’s leadership meeting. Move the vendor check-in to next Tuesday.</p>
+      <div className="aicase__grid">
+        <section className="aicase__card">
+          <span className="aicase__label">Input · fictional meeting notes</span>
+          <h3>Weekly Operations Meeting</h3>
+          <p>Acme onboarding is waiting on signed access forms. Camille will follow up today. The Meridian proposal should be ready Thursday afternoon for founder review. September revenue figures are needed before Friday’s leadership review. Move the vendor check-in to next Tuesday.</p>
         </section>
-        <section style={{ padding: 20, border: '1px solid color-mix(in srgb, currentColor 12%, transparent)', borderRadius: 18 }}>
-          <h3 style={{ margin: '0 0 10px', fontSize: 17 }}>AI processing instruction</h3>
-          <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, opacity: .7 }}>Summarize the meeting for an executive. Separate confirmed decisions from action items. For every action, identify the owner and deadline only when explicitly stated. Flag missing information instead of inventing it. Draft a concise follow-up email for review.</p>
+        <section className="aicase__card aicase__card--prompt">
+          <span className="aicase__label">AI instruction</span>
+          <h3>Structured executive synthesis</h3>
+          <p>Summarize for an executive. Separate decisions from actions. Capture owners and deadlines only when stated. Flag missing information rather than inventing it. Prepare a concise follow-up email for human review.</p>
         </section>
       </div>
 
-      <section style={{ marginTop: 14, padding: 22, borderRadius: 18, background: 'color-mix(in srgb, currentColor 5%, transparent)' }}>
-        <h3 style={{ margin: '0 0 12px', fontSize: 18 }}>Executive summary</h3>
-        <p style={{ margin: 0, lineHeight: 1.65, opacity: .75 }}>Acme onboarding remains blocked by unsigned access forms. The Meridian proposal is the immediate deliverable and should be ready Thursday afternoon for founder review. September revenue figures are needed before Friday’s leadership review. The vendor check-in will move to next Tuesday.</p>
+      <section className="aicase__summary">
+        <span className="aicase__label">Gemini-assisted output · example</span>
+        <h3>Executive summary</h3>
+        <p>Acme onboarding remains blocked by unsigned access forms. The Meridian proposal is the immediate deliverable for Thursday afternoon review. September revenue figures are required before Friday’s leadership review, and the vendor check-in moves to next Tuesday.</p>
       </section>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: 14, marginTop: 14 }}>
-        <section style={{ padding: 20, borderRadius: 18, background: 'color-mix(in srgb, currentColor 5%, transparent)' }}>
-          <h3 style={{ margin: '0 0 12px', fontSize: 17 }}>Decisions captured</h3>
-          <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.8, opacity: .74 }}>
-            <li>Meridian proposal reviewed before submission.</li>
-            <li>Vendor check-in moved to next Tuesday.</li>
-            <li>September revenue figures included in Friday’s review.</li>
-          </ul>
-        </section>
-        <section style={{ padding: 20, borderRadius: 18, background: 'color-mix(in srgb, currentColor 5%, transparent)' }}>
-          <h3 style={{ margin: '0 0 12px', fontSize: 17 }}>Action tracker</h3>
-          <div style={{ fontSize: 14, lineHeight: 1.75, opacity: .74 }}>
-            <strong>Camille</strong> — Follow up on Acme access forms · Today<br />
-            <strong>Proposal owner</strong> — Prepare Meridian proposal · Thursday PM<br />
-            <strong>Finance owner</strong> — Add September revenue figures · Before Friday<br />
-            <strong>Camille</strong> — Reschedule vendor check-in · Next Tuesday
-          </div>
-        </section>
-      </div>
-
-      <section style={{ marginTop: 14, padding: 22, borderLeft: '3px solid currentColor', background: 'color-mix(in srgb, currentColor 4%, transparent)' }}>
-        <h3 style={{ margin: '0 0 10px', fontSize: 17 }}>Follow-up email draft</h3>
-        <p style={{ margin: 0, fontSize: 14, lineHeight: 1.7, opacity: .74 }}><strong>Subject: Weekly Operations — Decisions & Next Actions</strong><br /><br />Hi team, here’s a quick recap of today’s operations meeting. Acme onboarding is pending the signed access forms, the Meridian proposal is targeted for Thursday afternoon review, and September revenue figures are needed before Friday’s leadership meeting. The vendor check-in will be moved to next Tuesday. I’ll track the agreed actions and follow up on outstanding items. Thanks!</p>
+      <section className="aicase__tracker">
+        <div className="aicase__tracker-head">
+          <div><span className="aicase__label">Google Sheets · example</span><h3>Action tracker</h3></div>
+          <span className="aicase__demo">Fictional data</span>
+        </div>
+        <div className="aicase__table" role="table" aria-label="Example action tracker">
+          <div className="aicase__tr aicase__th" role="row"><span>Action</span><span>Owner</span><span>Due</span><span>Status</span></div>
+          {[
+            ['Follow up on Acme access forms','Camille','Today','Open'],
+            ['Prepare Meridian proposal','Proposal owner','Thu PM','In progress'],
+            ['Add September revenue figures','Finance owner','Before Fri','Open'],
+            ['Reschedule vendor check-in','Camille','Next Tue','Ready'],
+          ].map(row => <div className="aicase__tr" role="row" key={row[0]}>{row.map(cell => <span role="cell" key={cell}>{cell}</span>)}</div>)}
+        </div>
       </section>
 
-      <div style={{ marginTop: 26 }}>
+      <section className="aicase__email">
+        <span className="aicase__label">Gmail · AI-assisted draft</span>
+        <div className="aicase__email-head"><strong>Subject: Weekly Operations — Decisions & Next Actions</strong><span>Draft · review required</span></div>
+        <p>Hi team, here’s a quick recap of today’s operations meeting. Acme onboarding is pending the signed access forms, the Meridian proposal is targeted for Thursday afternoon review, and September revenue figures are needed before Friday’s leadership meeting. The vendor check-in will be moved to next Tuesday. I’ll track the agreed actions and follow up on outstanding items. Thanks!</p>
+      </section>
+
+      <aside className="aicase__guardrail">
+        <strong>Human-in-the-loop guardrail</strong>
+        <p>AI assists with synthesis, structure, and drafting. A person reviews names, commitments, deadlines, sensitive information, and the final email before anything is sent or treated as authoritative.</p>
+      </aside>
+
+      <div className="aicase__proof">
         <strong>What this demonstrates</strong>
-        <p style={{ margin: '8px 0 0', lineHeight: 1.6, opacity: .72 }}>Meeting support · Gemini/ChatGPT prompting · executive summarization · decision logging · action-item tracking · follow-up drafting · human review before sending</p>
+        <p>Meeting support · Gemini / ChatGPT prompting · executive summarization · Google Sheets organization · action-item tracking · Gmail drafting · human review · workflow thinking</p>
       </div>
     </article>
   </SectionWindow>
