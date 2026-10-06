@@ -3,8 +3,6 @@ import { SealCheck, CaretRight, Stack, Robot } from '@/components/slab'
 import { profile } from '@/data/profile'
 import QuickMenu from './QuickMenu'
 
-const BASE = import.meta.env.BASE_URL
-
 /**
  * Home on a phone, the parts the rail and the bento used to carry:
  *
