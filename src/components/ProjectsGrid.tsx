@@ -44,8 +44,9 @@ const FILTERS: { key: Cat | 'all'; label: string }[] = [
 
 /** Example tool marks, from public/icons. Swap for what you build with. */
 const GHL = '/icons/googleworkspace.svg'
-const CLAUDE_CODE = '/icons/googleworkspace.svg'
 const CODEX = '/icons/openai.svg'
+
+const leaves = (n: StackNode): StackNode[] => (n.children?.length ? n.children.flatMap(leaves) : [n])
 
 const WF_SHOTS = ['project-1.jpg', 'project-2.jpg', 'project-3.jpg', 'project-4.jpg'].map(
   (f) => `/placeholders/${f}`,
