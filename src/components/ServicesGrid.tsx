@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react'
 import { MagnetStraight, Timer, Trophy, CheckCircle } from '@/components/slab'
 import type { Icon } from '@/components/slab'
-import Autopilot, { TOOLS } from '@/components/Autopilot'
+
 
 type Stage = { index: string; label: string; body: string; Icon: Icon; chips: string[] }
 
@@ -11,8 +11,8 @@ const STAGES: Stage[] = [
   { index: '03', label: 'Support', body: 'Keep information, communication, and recurring work moving so you can focus on higher-value decisions.', Icon: Trophy, chips: ['Follow-through', 'Clarity', 'Efficiency'] },
 ]
 
-const GWS = '/icons/googleworkspace.svg'
-const OPENAI = '/icons/openai.svg'
+const GWS = `${import.meta.env.BASE_URL}icons/googleworkspace.svg`
+const OPENAI = `${import.meta.env.BASE_URL}icons/openai.svg`
 
 type Service = { index: string; title: string; description: string; chip: string; logos: string[]; bullets: string[] }
 
@@ -78,13 +78,17 @@ export default function ServicesGrid() {
         <div className="sgrid__flow">
           <header className="sgrid__flow-head">
             <div className="sgrid__flow-copy">
-              <span className="sgrid__flow-eyebrow">Workflow concept</span>
+              <span className="sgrid__flow-eyebrow">A practical support rhythm</span>
               <h2 className="sgrid__flow-title">From request to follow-through.</h2>
-              <p className="sgrid__flow-sub">An example of how structured steps, CRM updates, reminders, and AI assistance can keep routine client work moving.</p>
+              <p className="sgrid__flow-sub">A simple operating pattern for keeping executive requests visible, organized, and moving without adding unnecessary complexity.</p>
             </div>
-            <ul className="sgrid__flow-tools" role="list" aria-label="Workflow concepts">{TOOLS.map(({ Icon: ToolIcon, label }) => <li key={label} className="sgrid__flow-tool"><ToolIcon size={14} weight="duotone" aria-hidden="true" /><span>{label}</span></li>)}</ul>
           </header>
-          <div className="sgrid__flow-main"><Autopilot compact maxScale={1.08} /></div>
+          <ol className="sgrid__rhythm" role="list">
+            <li><span>01</span><strong>Capture</strong><p>Collect the request, context, deadline, and expected outcome.</p></li>
+            <li><span>02</span><strong>Organize</strong><p>Place the work in the right Workspace, CRM, or tracking system.</p></li>
+            <li><span>03</span><strong>Execute</strong><p>Complete the task using clear documentation and AI assistance where useful.</p></li>
+            <li><span>04</span><strong>Follow through</strong><p>Update status, surface blockers, and close the loop with the right person.</p></li>
+          </ol>
         </div>
       </div>
     </section>
