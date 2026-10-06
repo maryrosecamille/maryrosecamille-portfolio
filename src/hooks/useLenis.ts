@@ -72,7 +72,6 @@ export function useLenis() {
       // scroller. Passing a non-scrolling wrapper freezes the page.
       const panel = getScroller()
       const usesPanel = !!panel && window.innerWidth >= 1100
-      const content = panel?.firstElementChild as HTMLElement | undefined
 
       // The desktop shell already uses a native overflow scroller. Keeping
       // wheel input native is more reliable across browsers and mouse drivers
