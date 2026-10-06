@@ -1,8 +1,8 @@
 import { Fragment, useCallback, useEffect, useRef, useState, type ComponentType, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'
 import { ArrowUpRight, X, Ticket, Robot, FlowArrow, CursorClick } from '@/components/slab'
-import { FlowIcon, PlanIcon, GlobeIcon, SparkIcon, DeviceIcon } from './ProjectIcons'
-import { AutomationsPanel, PlanPanel, TicketingPanel, FrameworkPanel, WorkflowPanel, BarrelPanel, AIWindow, AppsWindow } from './ProjectPanels'
+import { FlowIcon, PlanIcon, SparkIcon } from './ProjectIcons'
+import { AutomationsPanel, PlanPanel, TicketingPanel, FrameworkPanel, WorkflowPanel, AIWindow } from './ProjectPanels'
 import { gymFunnel, bookingFunnel, websiteFunnel, type Funnel } from '@/data/funnels'
 import { mobileApps } from '@/data/projects'
 import { aiStack, type StackNode } from '@/data/ai-stack'
@@ -48,10 +48,6 @@ const FILTERS: { key: Cat | 'all'; label: string }[] = [
 const GHL = '/icons/googleworkspace.svg'
 const CLAUDE_CODE = '/icons/googleworkspace.svg'
 const CODEX = '/icons/openai.svg'
-const HERMES = '/icons/googleworkspace.svg'
-const PLAY = '/icons/ai/googleplay.svg'
-const CHROME = '/icons/ai/googlechrome.svg'
-const EXPO = '/icons/ai/expo.svg'
 
 const WF_SHOTS = ['project-1.jpg', 'project-2.jpg', 'project-3.jpg', 'project-4.jpg'].map(
   (f) => `/placeholders/${f}`,
@@ -65,8 +61,6 @@ const APP_SHOTS = [
   '/placeholders/extension-1.jpg',
   '/placeholders/extension-2.jpg',
 ]
-
-const BUILD_DESC = 'PLACEHOLDER - tell me what to put here: two lines on what this project is and the result it got.'
 
 /** The three featured builds: each its own card in the stack, each its own
  *  pop-up. */
