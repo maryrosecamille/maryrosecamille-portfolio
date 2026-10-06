@@ -1,254 +1,130 @@
-import { useState } from 'react'
-import { Play, Gauge, Robot, Code } from '@/components/slab'
-import type { Icon } from '@/components/slab'
+import { Briefcase, Medal, SealCheck } from '@/components/slab'
 
-/**
- * TestimonialsGrid - the Testimonials view as a fixed viewport.
- *
- * Two columns inside one glass sheet: the video proof on the left, the client
- * ledger on the right. The page is sized to the panel and does not scroll, so
- * both clips share ONE stage and a picker switches between them rather than
- * stacking two players down a column that would never fit.
- *
- * Clips can disagree about orientation, so the stage is ONE fixed plate that
- * each is contained inside. Letting the frame take each clip's own ratio made
- * it jump size on every switch; a single plate keeps the card the same object
- * whichever is playing.
- *
- * To add a video: drop the .mp4 in public/testimonials/, set its `src` below
- * (e.g. '/testimonials/client-1.mp4'), and swap the poster for a still from
- * the clip. With `src` empty the cover stays up and play is disabled.
- */
-
-type Clip = {
-  id: string
-  index: string
-  /** Leave empty until you have the video file. */
-  src: string
-  poster: string
-  duration: string
-  kicker: string
-  width: number
-  height: number
-}
-
-const CLIPS: Clip[] = [
-  {
-    id: 'clip-1',
-    index: '01',
-    src: '',
-    poster: '/placeholders/testimonial-1.jpg',
-    duration: '0:00',
-    kicker: 'Client testimonial',
-    width: 720,
-    height: 1080,
-  },
-  {
-    id: 'clip-2',
-    index: '02',
-    src: '',
-    poster: '/placeholders/testimonial-2.jpg',
-    duration: '0:00',
-    kicker: 'Client testimonial',
-    width: 720,
-    height: 1080,
-  },
-]
-
-/* The client ledger. `logoSrc` is optional - without it the medallion falls
-   back to the icon. */
-
-type Client = {
-  index: string
-  name: string
-  role: string
-  daily: string
-  work: string[]
-  logoSrc?: string
-  Icon: Icon
-}
-
-const CLIENTS: Client[] = [
+const EXPERIENCE = [
   {
     index: '01',
-    name: 'Client Name 1',
-    role: 'PLACEHOLDER ROLE',
-    daily:
-      'PLACEHOLDER - tell me what to put here: one or two sentences on what you run or build for this client day to day.',
-    work: ['Tag', 'Tag', 'Tag'],
-    logoSrc: '/placeholders/logo.svg',
-    Icon: Gauge,
+    name: 'Accenture',
+    role: 'Application Support Engineer · Aug 2026–Present',
+    daily: 'Supporting Google as part of the Quota Increase team, with Salesforce used in the support workflow.',
+    work: ['Application Support', 'Salesforce', 'Google Support'],
   },
   {
     index: '02',
-    name: 'Client Name 2',
-    role: 'PLACEHOLDER ROLE',
-    daily:
-      'PLACEHOLDER - tell me what to put here: one or two sentences on what you run or build for this client day to day.',
-    work: ['Tag', 'Tag', 'Tag'],
-    logoSrc: '/placeholders/logo.svg',
-    Icon: Robot,
+    name: 'Peak Outsourcing',
+    role: 'B2B Sales Representative & Administrative Assistant · Nov 2023–May 2026',
+    daily: 'Handled quotations, order processing, customer records, follow-ups, client communication, and coordination with onshore teams using Google Workspace and Microsoft Office.',
+    work: ['Administration', 'Client Operations', 'Sales Support'],
   },
   {
     index: '03',
-    name: 'Client Name 3',
-    role: 'PLACEHOLDER ROLE',
-    daily:
-      'PLACEHOLDER - tell me what to put here: one or two sentences on what you run or build for this client day to day.',
-    work: ['Tag', 'Tag', 'Tag'],
-    logoSrc: '/placeholders/logo.svg',
-    Icon: Code,
+    name: 'TELUS International Philippines',
+    role: 'Operations CSR · May 2021–May 2023',
+    daily: 'Provided Level 1 technical support, account recovery and email configuration while supporting billing, subscriptions, cybersecurity products, and identity theft insurance.',
+    work: ['Technical Support', 'Customer Operations', 'Sales'],
+  },
+  {
+    index: '04',
+    name: 'Everise Philippines',
+    role: 'Customer Service Representative · Aug–Oct 2023',
+    daily: 'Supported healthcare providers with insurance payment inquiries, claim and account status updates, documentation, and follow-ups.',
+    work: ['Healthcare', 'Documentation', 'Follow-up'],
+  },
+  {
+    index: '05',
+    name: 'FIS Global Solutions',
+    role: 'Customer Service Representative · Oct 2020–Feb 2021',
+    daily: 'Supported payroll bank account inquiries, transaction reviews, unfamiliar charges, disputed transactions, documentation, and escalation.',
+    work: ['Financial Support', 'Documentation', 'Escalation'],
   },
 ]
 
-export default function TestimonialsGrid() {
-  const [active, setActive] = useState(0)
-  // The stage shows the clip's poster as cover art until it is asked to
-  // play. A poster can fill the frame edge to edge whichever way the clip is
-  // shot; a paused <video> cannot, and letterboxing one orientation into a
-  // fixed frame left a third of the plate as dead margin.
-  const [playing, setPlaying] = useState(false)
-  const clip = CLIPS[active]
-  const hasVideo = clip.src !== ''
-  const pick = (i: number) => {
-    setActive(i)
-    setPlaying(false)
-  }
+const CREDENTIALS = [
+  'Google Workspace with Gemini: Foundations of Your AI Workflow',
+  'Gemini in Google Workspace Studio',
+  'Introduction to the Gemini App',
+  'Gemini in Google Vids',
+  'Gemini in Google Drive',
+  'Gemini in Google Chat',
+  'Gemini in Google Meet',
+  'Gemini in Google Sheets',
+  'Gemini in Google Slides',
+  'Gemini in Gmail',
+  'Gemini in Google Docs',
+]
 
+const LEADERSHIP = [
+  'Foundations of Leadership',
+  'Effective Coaching',
+  'Introduction to Root Cause Analysis and SMART Action Planning',
+  'IT Cybersecurity',
+]
+
+export default function TestimonialsGrid() {
   return (
-    <section className="pgrid tgrid" aria-labelledby="testimonials-title">
+    <section className="pgrid tgrid" aria-labelledby="experience-title">
       <header className="pgrid__head">
-        <span className="pgrid__eyebrow">Testimonials</span>
-        <h1 className="pgrid__title" id="testimonials-title">
-          Your testimonials headline.
-        </h1>
-        <p className="pgrid__lede">
-          PLACEHOLDER - tell me what to put here: one line that introduces the videos and the client list.
-        </p>
+        <span className="pgrid__eyebrow">Experience & Credentials</span>
+        <h1 className="pgrid__title" id="experience-title">Built on operations, support, and continuous learning.</h1>
+        <p className="pgrid__lede">Professional experience and training behind my transition into AI-powered executive support.</p>
       </header>
 
       <div className="home__glass tgrid__glass">
-        {/* Left: one stage, two clips. */}
         <div className="tgrid__reel">
-          <div className="tgrid__stage">
-            {playing && hasVideo ? (
-              // Re-keyed so switching clips mounts a fresh element instead of
-              // swapping src on a player that is already mid-playback.
-              <video
-                key={clip.id}
-                className="tgrid__video"
-                src={clip.src}
-                poster={clip.poster}
-                width={clip.width}
-                height={clip.height}
-                controls
-                autoPlay
-                playsInline
-                aria-label={`Video testimonial ${clip.index} from a client`}
-              />
-            ) : (
-              <button
-                type="button"
-                className="tgrid__cover"
-                onClick={() => hasVideo && setPlaying(true)}
-                disabled={!hasVideo}
-                aria-label={
-                  hasVideo
-                    ? `Play client testimonial ${clip.index}, ${clip.duration}`
-                    : `Client testimonial ${clip.index}, no video added yet`
-                }
-              >
-                <img
-                  key={clip.id}
-                  className="tgrid__cover-img"
-                  src={clip.poster}
-                  alt=""
-                  decoding="async"
-                />
-                <span className="tgrid__cover-shade" aria-hidden="true" />
-                {hasVideo && (
-                  <span className="tgrid__cover-play" aria-hidden="true">
-                    <Play size={26} weight="fill" />
-                  </span>
-                )}
-                <span className="tgrid__cover-meta" aria-hidden="true">
-                  <span className="tgrid__cover-kicker">
-                    {clip.kicker} {clip.index}
-                  </span>
-                  <span className="tgrid__cover-sub">
-                    {hasVideo
-                      ? `${clip.duration} · Tap to play`
-                      : 'PLACEHOLDER - add your video to public/testimonials/'}
-                  </span>
+          <div className="tgrid__ledger">
+            <div className="tgrid__ledger-head">
+              <h2 className="tgrid__ledger-title">Google & professional credentials</h2>
+              <p className="tgrid__ledger-sub">Training focused on Google Workspace, Gemini, leadership, coaching, and structured problem solving.</p>
+            </div>
+            <ul className="tgrid__clients" role="list">
+              <li className="tgrid__client">
+                <span className="tgrid__client-mark" aria-hidden="true"><SealCheck size={22} weight="duotone" /></span>
+                <span className="tgrid__client-body">
+                  <span className="tgrid__client-head"><span className="tgrid__client-name">Google Skills</span><span className="tgrid__client-role">Workspace + Gemini</span></span>
+                  <span className="tgrid__client-daily">{CREDENTIALS.join(' · ')}</span>
                 </span>
-              </button>
-            )}
-          </div>
-
-          {/* The picker is one segmented control, not two loose chips: two
-              cells on a shared plate, the active one lit. */}
-          <div className="tgrid__picker" role="group" aria-label="Choose a testimonial">
-            {CLIPS.map((c, i) => (
-              <button
-                key={c.id}
-                type="button"
-                className={`tgrid__pick${i === active ? ' is-active' : ''}`}
-                onClick={() => pick(i)}
-                aria-pressed={i === active}
-              >
-                <span className="tgrid__pick-thumb" aria-hidden="true">
-                  <img src={c.poster} alt="" loading="lazy" decoding="async" />
+              </li>
+              <li className="tgrid__client">
+                <span className="tgrid__client-mark" aria-hidden="true"><Medal size={22} weight="duotone" /></span>
+                <span className="tgrid__client-body">
+                  <span className="tgrid__client-head"><span className="tgrid__client-name">Peak Outsourcing Training</span><span className="tgrid__client-role">Leadership</span></span>
+                  <span className="tgrid__client-daily">{LEADERSHIP.join(' · ')}</span>
                 </span>
-                <span className="tgrid__pick-copy">
-                  <span className="tgrid__pick-kicker">Testimonial {c.index}</span>
-                  <span className="tgrid__pick-meta">{c.duration}</span>
+              </li>
+              <li className="tgrid__client">
+                <span className="tgrid__client-mark" aria-hidden="true"><Medal size={22} weight="duotone" /></span>
+                <span className="tgrid__client-body">
+                  <span className="tgrid__client-head"><span className="tgrid__client-name">Recognition</span><span className="tgrid__client-role">Awards & academics</span></span>
+                  <span className="tgrid__client-daily">Sales Brag Grand Champion · LUWAD Award for Excellence · Consistent Honor Student</span>
                 </span>
-              </button>
-            ))}
+              </li>
+              <li className="tgrid__client">
+                <span className="tgrid__client-mark" aria-hidden="true"><Briefcase size={22} weight="duotone" /></span>
+                <span className="tgrid__client-body">
+                  <span className="tgrid__client-head"><span className="tgrid__client-name">Education</span><span className="tgrid__client-role">Business</span></span>
+                  <span className="tgrid__client-daily">BS Business Administration – Human Resource Management, Pateros Technological College (2026) · BS Management Accounting, University of Makati (undergraduate, 2019–2021) · ABM, University of Makati (2017–2019)</span>
+                </span>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Right: the client ledger, one row per client. */}
         <div className="tgrid__ledger">
           <div className="tgrid__ledger-head">
-            <h2 className="tgrid__ledger-title">Your client list headline here.</h2>
-            <p className="tgrid__ledger-sub">Short supporting line.</p>
+            <h2 className="tgrid__ledger-title">Professional experience</h2>
+            <p className="tgrid__ledger-sub">Transferable experience in application support, administration, client operations, sales, and technical support.</p>
           </div>
-
-          {/* One plate, three rows split by hairlines. Three boxed cards each
-              carrying their own border read as three separate widgets; a
-              single ledger reads as one record. */}
           <ul className="tgrid__clients" role="list">
-            {CLIENTS.map((c) => {
-              const FallbackIcon = c.Icon
-              return (
-                <li key={c.index} className="tgrid__client">
-                  <span className="tgrid__client-ghost" aria-hidden="true">{c.index}</span>
-                  <span className="tgrid__client-mark" aria-hidden="true">
-                    {c.logoSrc ? (
-                      <img src={c.logoSrc} alt="" loading="lazy" decoding="async" />
-                    ) : (
-                      <FallbackIcon size={22} weight="duotone" />
-                    )}
-                  </span>
-
-                  <span className="tgrid__client-body">
-                    <span className="tgrid__client-head">
-                      <span className="tgrid__client-name">{c.name}</span>
-                      <span className="tgrid__client-role">{c.role}</span>
-                    </span>
-                    <span className="tgrid__client-daily">{c.daily}</span>
-                    <ul className="tgrid__client-tags" role="list">
-                      {c.work.map((w, i) => (
-                        <li key={`${w}-${i}`} className="tgrid__client-tag">
-                          {w}
-                        </li>
-                      ))}
-                    </ul>
-                  </span>
-                </li>
-              )
-            })}
+            {EXPERIENCE.map((c) => (
+              <li key={c.index} className="tgrid__client">
+                <span className="tgrid__client-ghost" aria-hidden="true">{c.index}</span>
+                <span className="tgrid__client-mark" aria-hidden="true"><Briefcase size={22} weight="duotone" /></span>
+                <span className="tgrid__client-body">
+                  <span className="tgrid__client-head"><span className="tgrid__client-name">{c.name}</span><span className="tgrid__client-role">{c.role}</span></span>
+                  <span className="tgrid__client-daily">{c.daily}</span>
+                  <ul className="tgrid__client-tags" role="list">{c.work.map((w) => <li key={w} className="tgrid__client-tag">{w}</li>)}</ul>
+                </span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
