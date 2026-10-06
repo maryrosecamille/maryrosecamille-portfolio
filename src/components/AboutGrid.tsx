@@ -1,24 +1,13 @@
-import type { CSSProperties } from 'react'
-import { ArrowUpRight, MapPin } from '@/components/slab'
+import { ArrowUpRight, Briefcase, Buildings, CalendarCheck, MapPin, Sparkle } from '@/components/slab'
 import { profile } from '@/data/profile'
 
 const BASE = import.meta.env.BASE_URL
 
-const GWS = { src: `${BASE}icons/googleworkspace.svg`, name: 'Google Workspace' }
-const GEMINI = { src: `${BASE}icons/googleworkspace.svg`, name: 'Gemini for Workspace' }
-const CHATGPT = { src: `${BASE}icons/openai.svg`, name: 'ChatGPT' }
-
-type Capability = {
-  index: string
-  title: string
-  marks: { src: string; name: string }[]
-}
-
-const CAPABILITIES: Capability[] = [
-  { index: '01', title: 'Executive & Administrative Support', marks: [GWS] },
-  { index: '02', title: 'Google Workspace Operations', marks: [GWS, GEMINI] },
-  { index: '03', title: 'AI-Assisted Workflows', marks: [GEMINI, CHATGPT] },
-  { index: '04', title: 'Client & Business Operations', marks: [GWS] },
+const CAPABILITIES = [
+  { index: '01', title: 'Executive & Administrative Support', Icon: CalendarCheck },
+  { index: '02', title: 'Google Workspace Operations', Icon: Briefcase },
+  { index: '03', title: 'AI-Assisted Workflows', Icon: Sparkle },
+  { index: '04', title: 'Client & Business Operations', Icon: Buildings },
 ]
 
 export default function AboutGrid() {
@@ -46,12 +35,10 @@ export default function AboutGrid() {
           <ul className="agrid__caps" role="list">
             {CAPABILITIES.map((c) => (
               <li key={c.index} className="agrid__cap">
-                <span className="agrid__cap-marks">
-                  {c.marks.map((m, i) => (
-                    <span key={`${m.name}-${i}`} className="agrid__mark" style={{ '--i': c.marks.length - i } as CSSProperties}>
-                      <img src={m.src} alt={m.name} loading="lazy" decoding="async" />
-                    </span>
-                  ))}
+                <span className="agrid__cap-marks" aria-hidden="true">
+                  <span className="agrid__mark">
+                    <c.Icon size={18} weight="regular" />
+                  </span>
                 </span>
                 <span className="agrid__cap-title">{c.title}</span>
                 <span className="agrid__cap-index" aria-hidden="true">{c.index}</span>
