@@ -395,3 +395,44 @@
     transform: none;
   }
 }
+
+
+/* Keep the About utility panel fully inside the glass card.
+   The footer is part of the left column flow, with real internal spacing;
+   extra card padding is no longer used as a substitute for footer room. */
+@media (min-width: 1100px) {
+  .agrid__glass {
+    box-sizing: border-box;
+    padding: clamp(32px, 2.7vw, 46px);
+    padding-bottom: clamp(42px, 4vw, 60px);
+    align-items: stretch;
+  }
+
+  .agrid__copy {
+    box-sizing: border-box;
+    min-height: 0;
+    padding-bottom: 0;
+  }
+
+  .agrid__bar {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: clamp(32px, 4vh, 52px);
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .agrid__cell {
+    min-height: 62px;
+    padding-block: 12px;
+  }
+
+  .agrid__cell + .agrid__cell--wide {
+    min-height: 58px;
+    padding-block: 11px;
+  }
+
+  .agrid__portrait {
+    margin-bottom: 0;
+  }
+}
