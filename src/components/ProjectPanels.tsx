@@ -220,7 +220,74 @@ export const FrameworkPanel = () => (
     </article>
   </SectionWindow>
 )
-export const WorkflowPanel = () => <BuildPanel build={BUILDS[2]} />
+export const WorkflowPanel = () => (
+  <SectionWindow label="Executive Inbox & Follow-Up System · Portfolio Demonstration">
+    <article style={{ padding: 'clamp(20px, 4vw, 48px)', maxWidth: 980, margin: '0 auto' }}>
+      <p style={{ margin: '0 0 8px', fontSize: 12, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', opacity: .6 }}>Portfolio Demonstration · Fictional inbox data</p>
+      <h2 style={{ margin: '0 0 14px', fontSize: 'clamp(28px, 4vw, 46px)', lineHeight: 1.05 }}>Executive Inbox & Follow-Up System</h2>
+      <p style={{ margin: '0 0 28px', maxWidth: 790, fontSize: 16, lineHeight: 1.65, opacity: .78 }}>A Gmail-centered workflow designed to reduce inbox noise without removing executive control. Messages are triaged by urgency and ownership, decisions are surfaced, routine responses are prepared, and open loops are tracked until they are closed.</p>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(125px,1fr))', gap: 10, marginBottom: 30 }}>
+        {['Capture','Triage','Decide','Respond','Track'].map((step, i) => (
+          <div key={step} style={{ padding: 15, border: '1px solid color-mix(in srgb, currentColor 14%, transparent)', borderRadius: 14 }}>
+            <span style={{ display: 'block', fontSize: 11, fontWeight: 700, opacity: .5 }}>0{i + 1}</span>
+            <strong style={{ display: 'block', marginTop: 5, fontSize: 14 }}>{step}</strong>
+          </div>
+        ))}
+      </div>
+
+      <section style={{ marginBottom: 16, padding: 22, borderRadius: 18, background: 'color-mix(in srgb, currentColor 5%, transparent)' }}>
+        <p style={{ margin: '0 0 6px', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', opacity: .55 }}>Fictional scenario</p>
+        <h3 style={{ margin: '0 0 10px', fontSize: 19 }}>Founder inbox · Monday morning</h3>
+        <p style={{ margin: 0, lineHeight: 1.6, opacity: .74 }}>The inbox contains a client escalation, a proposal approval request, a vendor scheduling email, an invoice reminder, and several informational updates. The goal is not simply inbox zero—it is making sure the founder sees the decisions that require judgment while routine work keeps moving.</p>
+      </section>
+
+      <div style={{ overflowX: 'auto', marginBottom: 16 }}>
+        <div style={{ minWidth: 720, display: 'grid', gap: 8 }}>
+          {[
+            ['Client escalation: launch delay','Urgent','Executive decision','Flag + brief founder','Today'],
+            ['Meridian proposal approval','High','Executive approval','Summarize + surface','Today'],
+            ['Vendor asks to reschedule','Normal','VA can handle','Draft + reschedule','Today'],
+            ['Invoice reminder','Normal','VA / finance','Verify + route','Tomorrow'],
+            ['Industry newsletter','FYI','No action','Archive / reference','—'],
+          ].map(([subject, priority, owner, action, follow]) => (
+            <div key={subject} style={{ display: 'grid', gridTemplateColumns: '2fr .7fr 1.1fr 1.3fr .7fr', gap: 10, padding: '13px 15px', border: '1px solid color-mix(in srgb, currentColor 11%, transparent)', borderRadius: 12, fontSize: 13, alignItems: 'center' }}>
+              <strong>{subject}</strong><span>{priority}</span><span>{owner}</span><span>{action}</span><span>{follow}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(270px,1fr))', gap: 14 }}>
+        <section style={{ padding: 20, borderRadius: 18, background: 'color-mix(in srgb, currentColor 5%, transparent)' }}>
+          <h3 style={{ margin: '0 0 12px', fontSize: 17 }}>Executive decision queue</h3>
+          <p style={{ margin: 0, fontSize: 14, lineHeight: 1.65, opacity: .74 }}><strong>1. Client escalation</strong> — approve recovery option before response.<br /><strong>2. Meridian proposal</strong> — approve final commercial terms.<br /><br />Everything else can move forward without consuming executive decision time.</p>
+        </section>
+        <section style={{ padding: 20, borderRadius: 18, background: 'color-mix(in srgb, currentColor 5%, transparent)' }}>
+          <h3 style={{ margin: '0 0 12px', fontSize: 17 }}>Follow-up tracker</h3>
+          <p style={{ margin: 0, fontSize: 14, lineHeight: 1.65, opacity: .74 }}><strong>Waiting on client:</strong> signed access forms<br /><strong>Waiting on founder:</strong> proposal approval<br /><strong>Waiting on vendor:</strong> new meeting confirmation<br /><strong>Next review:</strong> end-of-day open-loop check</p>
+        </section>
+      </div>
+
+      <section style={{ marginTop: 14, padding: 22, border: '1px solid color-mix(in srgb, currentColor 12%, transparent)', borderRadius: 18 }}>
+        <p style={{ margin: '0 0 6px', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', opacity: .55 }}>AI-assisted drafting example</p>
+        <h3 style={{ margin: '0 0 10px', fontSize: 17 }}>Vendor reschedule reply</h3>
+        <p style={{ margin: 0, fontSize: 14, lineHeight: 1.7, opacity: .74 }}><strong>Draft:</strong> Hi Jordan, thanks for the update. Tuesday works on our side. I’ve moved the check-in and will send the updated calendar invitation shortly. Please let me know if anything changes before then. Best, Camille</p>
+        <p style={{ margin: '12px 0 0', fontSize: 12, lineHeight: 1.6, opacity: .58 }}>Routine drafts can be accelerated with Gemini or ChatGPT, but sensitive client responses, commitments, pricing, and executive decisions remain subject to human review and approval.</p>
+      </section>
+
+      <section style={{ marginTop: 14, padding: 22, borderLeft: '3px solid currentColor', background: 'color-mix(in srgb, currentColor 4%, transparent)' }}>
+        <strong>Daily operating rhythm</strong>
+        <p style={{ margin: '8px 0 0', lineHeight: 1.65, opacity: .74 }}>Morning triage → surface urgent decisions → process routine actions → update waiting/follow-up tracker → midday check → end-of-day open-loop review. The objective is a controlled inbox where important commitments stay visible even after the original email leaves the top of the queue.</p>
+      </section>
+
+      <div style={{ marginTop: 26 }}>
+        <strong>What this demonstrates</strong>
+        <p style={{ margin: '8px 0 0', lineHeight: 1.6, opacity: .72 }}>Inbox triage · Gmail workflow thinking · executive judgment boundaries · prioritization · response drafting · follow-up management · AI-assisted communication · confidentiality-aware human review</p>
+      </div>
+    </article>
+  </SectionWindow>
+)
 
 function FrameBar({ host, path }: { host: string; path: string }) {
   return (
