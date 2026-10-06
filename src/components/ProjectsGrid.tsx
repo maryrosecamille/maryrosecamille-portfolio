@@ -110,6 +110,12 @@ function AIPreview() {
   )
 }
 
+const BUILDS: Project[] = [
+  { id: 'ticketing', cat: 'work', index: '03', kicker: 'Portfolio demonstration', title: 'Executive Command Center', desc: 'A Google Workspace concept for tracking priorities, meetings, deadlines, owners, and follow-ups in one executive view.', Icon: Ticket, logos: [GHL], eyebrow: 'Demonstration', Section: TicketingPanel, Preview: () => null },
+  { id: 'framework', cat: 'ai', index: '04', kicker: 'Portfolio demonstration', title: 'AI Meeting-to-Action Workflow', desc: 'A Gemini-assisted workflow concept that turns meeting notes into summaries, decisions, action items, and follow-up drafts.', Icon: Robot, logos: [GHL, CODEX], eyebrow: 'Demonstration', Section: FrameworkPanel, Preview: () => null },
+  { id: 'workflow', cat: 'work', index: '05', kicker: 'Portfolio demonstration', title: 'Executive Inbox & Follow-Up System', desc: 'A structured Gmail workflow concept for prioritizing messages, drafting responses, flagging decisions, and tracking follow-ups.', Icon: FlowArrow, logos: [GHL], eyebrow: 'Demonstration', Section: WorkflowPanel, Preview: () => null },
+]
+
 const PROJECTS: Project[] = [
   { id: 'workflows', cat: 'work', index: '01', title: 'Executive Workflow Concepts', desc: 'Visual examples of how recurring executive and client-support tasks can be organized into clear, repeatable workflows.', Icon: FlowIcon, logos: [GHL], eyebrow: 'Workflow concepts', Section: AutomationsPanel, span: 2, Preview: WorkflowsPreview },
   { id: 'plan', cat: 'work', index: '02', title: 'Executive Operations Playbook', desc: 'A sample operating plan for turning priorities, communication, meetings, and follow-ups into a consistent support rhythm.', Icon: PlanIcon, logos: [GHL], eyebrow: 'Sample document', Section: PlanPanel, Preview: PlanPreview },
