@@ -60,10 +60,10 @@ export default function ContactGrid() {
       <header className="pgrid__head">
         <span className="pgrid__eyebrow">FAQs / Contact</span>
         <h1 className="pgrid__title" id="contact-title">
-          Your contact headline goes here.
+          Let’s make your operations easier to run.
         </h1>
         <p className="pgrid__lede">
-          PLACEHOLDER - tell me what to put here: one or two lines inviting people to write and saying what they get back.
+          Looking for organized executive support, stronger Google Workspace workflows, or dependable operational follow-through? Tell me what you need help with.
         </p>
       </header>
 
@@ -132,8 +132,8 @@ export default function ContactGrid() {
               </h2>
               <p className="cgrid__done-body">
                 {status.via === 'webhook'
-                  ? 'It is in my inbox and on my phone. You will hear back within one business day.'
-                  : 'The message is laid out and addressed. Press send there and you will hear back within one business day.'}
+                  ? 'Your message was submitted successfully.'
+                  : 'The message is laid out and addressed. Review it in your mail app, then press send.'}
               </p>
               <button type="button" className="cgrid__again" onClick={() => setStatus({ kind: 'idle' })}>
                 Write another
@@ -169,12 +169,12 @@ export default function ContactGrid() {
               </label>
 
               <label className="cgrid__field cgrid__field--grow">
-                <span className="cgrid__label">Tell me more about your business</span>
+                <span className="cgrid__label">Tell me what you need help with</span>
                 <textarea
                   name="message"
                   required
                   maxLength={MAX_MESSAGE}
-                  placeholder="What do you need help with? What are you working with today?"
+                  placeholder="Share the role, project, recurring tasks, or workflow you would like support with."
                 />
               </label>
 
@@ -197,7 +197,7 @@ export default function ContactGrid() {
                     {status.note}
                   </span>
                 ) : (
-                  <span className="cgrid__hint">Short reassurance line, e.g. your reply time.</span>
+                  <span className="cgrid__hint">You can also email me directly or connect on LinkedIn.</span>
                 )}
               </div>
             </form>
