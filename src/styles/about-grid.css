@@ -345,3 +345,37 @@
     object-position: center center;
   }
 }
+
+
+/* Final About-page canvas and bottom-spacing refinement */
+.agrid {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Keep the decorative site background behind the content instead of visually
+   cutting through the glass card, and give the page a calm continuous wash. */
+.agrid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 76% 18%, rgba(184, 145, 112, 0.07), transparent 30%),
+    linear-gradient(180deg, rgba(255, 252, 247, 0.18), rgba(255, 252, 247, 0.58));
+}
+
+@media (min-width: 1100px) {
+  .agrid {
+    padding-bottom: clamp(96px, 11vh, 150px);
+  }
+
+  .agrid__glass {
+    margin-bottom: clamp(36px, 5vh, 64px);
+  }
+
+  .agrid__bar {
+    margin-bottom: clamp(16px, 2vh, 28px);
+  }
+}
