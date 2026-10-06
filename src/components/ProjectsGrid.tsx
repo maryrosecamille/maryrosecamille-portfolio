@@ -50,24 +50,25 @@ const CODEX = `${BASE}icons/openai.svg`
 
 const leaves = (n: StackNode): StackNode[] => (n.children?.length ? n.children.flatMap(leaves) : [n])
 
-const WF_SHOTS = ['project-1.jpg', 'project-2.jpg', 'project-3.jpg', 'project-4.jpg'].map(
-  (f) => `${BASE}placeholders/${f}`,
-)
-
 const AI_LEAVES = leaves(aiStack)
 
 /* ---------- Previews ---------- */
 
 function WorkflowsPreview() {
+  const concepts = [
+    ['01', 'Inbox triage', 'Prioritize · Draft · Track'],
+    ['02', 'Meeting follow-through', 'Summarize · Assign · Follow up'],
+    ['03', 'Executive visibility', 'Priorities · Deadlines · Decisions'],
+  ]
   return (
-    <div className="bento__media bento__reel" aria-hidden="true">
-      <div className="bento__reel-track">
-        {[...WF_SHOTS, ...WF_SHOTS].map((src, i) => (
-          <span key={i} className="bento__shot">
-            <img src={src} alt="" loading="lazy" decoding="async" />
-          </span>
-        ))}
-      </div>
+    <div className="bento__media pwork" aria-hidden="true">
+      {concepts.map(([index, title, meta]) => (
+        <span className="pwork__row" key={title}>
+          <small>{index}</small>
+          <strong>{title}</strong>
+          <em>{meta}</em>
+        </span>
+      ))}
     </div>
   )
 }
@@ -119,7 +120,7 @@ const BUILDS: Project[] = [
 ]
 
 const PROJECTS: Project[] = [
-  { id: 'workflows', cat: 'work', index: '01', title: 'Executive Workflow Concepts', desc: 'Visual examples of how recurring executive and client-support tasks can be organized into clear, repeatable workflows.', Icon: FlowIcon, logos: [GHL], eyebrow: 'Workflow concepts', Section: AutomationsPanel, span: 2, Preview: WorkflowsPreview },
+  { id: 'workflows', cat: 'work', index: '01', title: 'Executive Workflow Concepts', desc: 'Three practical workflow patterns for inbox triage, meeting follow-through, and executive visibility.', Icon: FlowIcon, logos: [GHL], eyebrow: 'Workflow concepts', Section: AutomationsPanel, span: 2, Preview: WorkflowsPreview },
   { id: 'plan', cat: 'work', index: '02', title: 'Executive Operations Playbook', desc: 'A sample operating plan for turning priorities, communication, meetings, and follow-ups into a consistent support rhythm.', Icon: PlanIcon, logos: [GHL], eyebrow: 'Sample document', Section: PlanPanel, Preview: PlanPreview },
   { id: 'ai', cat: 'ai', index: '07', title: 'Google Workspace + AI Toolkit', desc: 'A practical view of the Google Workspace and AI tools I use or train with for executive and operations support.', Icon: SparkIcon, logos: [GHL, CODEX], eyebrow: 'Tools & workflows', Section: AIWindow, Preview: AIPreview },
 ]
