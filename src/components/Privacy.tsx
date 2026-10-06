@@ -2,11 +2,7 @@ import { ArrowLeft } from '@/components/slab'
 import { useNavigate } from 'react-router-dom'
 import { profile } from '@/data/profile'
 
-/**
- * Privacy Policy - PLACEHOLDER. Legal text has to describe YOUR site and what
- * it collects, so none is supplied. Write it (or have a lawyer or a policy
- * generator write it) and paste it into the sections below.
- */
+/** Privacy notice for this portfolio. */
 export default function Privacy() {
   const navigate = useNavigate()
 
@@ -23,20 +19,20 @@ export default function Privacy() {
         </button>
 
         <h1 className="legal-page__title">Privacy Policy</h1>
-        <p className="legal-page__updated">Last updated: PLACEHOLDER date</p>
+        <p className="legal-page__updated">Last updated: October 6, 2026</p>
 
         <div className="legal-page__body">
           <h2>Who this covers</h2>
-          <p>PLACEHOLDER - tell me what to put here: who runs this site and which sites this policy applies to.</p>
+          <p>This notice applies to the Maryrose Camille portfolio website and the contact options provided on it.</p>
 
           <h2>What is collected</h2>
-          <p>PLACEHOLDER - tell me what to put here: what the contact form and any analytics collect.</p>
+          <p>If you contact me through the form, the site processes the name, email address, and message you provide. When no form backend is configured, the form opens your own email application instead of storing the message on this site.</p>
 
           <h2>How it is used</h2>
-          <p>PLACEHOLDER - tell me what to put here: what you do with that data and who else sees it.</p>
+          <p>Contact information is used to respond to inquiries and discuss potential work or professional opportunities. I do not use this portfolio to sell contact information.</p>
 
           <h2>How long it is kept</h2>
-          <p>PLACEHOLDER - tell me what to put here: retention periods and how to ask for deletion.</p>
+          <p>If you send information by email, it may remain in the relevant email account as part of normal correspondence. You may contact me at the address below to request deletion of correspondence I control.</p>
 
           <h2>Contact</h2>
           <p>
