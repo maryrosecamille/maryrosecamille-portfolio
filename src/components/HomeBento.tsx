@@ -15,7 +15,6 @@ import {
   AppWindow,
   SealCheck,
 } from '@/components/slab'
-import { gymFunnel, bookingFunnel, websiteFunnel, type Funnel } from '@/data/funnels'
 import { aiStack, type StackNode } from '@/data/ai-stack'
 import { profile } from '@/data/profile'
 
@@ -31,10 +30,11 @@ const BASE = import.meta.env.BASE_URL
  * height and Home stays a single viewport.
  */
 
-const thumbSrc = (f: Funnel) =>
-  `${BASE}home/${f.dir ?? 'funnels'}-${f.file.replace('.html', '.jpeg')}`
-
-const PROJECT_SHOTS = [gymFunnel[0], bookingFunnel[0], websiteFunnel[0], gymFunnel[1]].filter(Boolean)
+const PROJECT_SHOTS = [
+  { title: 'Executive Command Center', meta: 'Google Workspace · Operations' },
+  { title: 'AI Meeting-to-Action', meta: 'Gemini · Follow-ups · Documentation' },
+  { title: 'Executive Inbox System', meta: 'Gmail · Prioritization · Follow-through' },
+]
 
 const OFFERS = [
   { Icon: FunnelSimple, title: 'Executive Support', note: 'Calendar, inbox, meetings & follow-ups' },
@@ -51,7 +51,7 @@ const CLIENTS = [
 ]
 
 // Three photos of you, fanned. Small copies are fine - the fan shows them under 100px.
-const PHOTOS = [profile.avatarSrc, `${BASE}avatar.svg?2`, `${BASE}avatar.svg?3`]
+const PHOTOS = [profile.avatarSrc]
 
 /** The AI systems as a flat list: every leaf of the Projects tree, in order. */
 const leaves = (n: StackNode): StackNode[] =>
@@ -92,9 +92,11 @@ export default function HomeBento() {
         <CardHead Icon={FolderOpen} title="Projects" desc="Executive operations and AI-assisted workflow demonstrations." />
         <div className="bento__media bento__reel" aria-hidden="true">
           <div className="bento__reel-track">
-            {[...PROJECT_SHOTS, ...PROJECT_SHOTS].map((f, i) => (
-              <span key={i} className="bento__shot">
-                <img src={thumbSrc(f)} alt="" loading="lazy" decoding="async" />
+            {[...PROJECT_SHOTS, ...PROJECT_SHOTS].map((project, i) => (
+              <span key={i} className="bento__shot bento__case">
+                <span className="bento__case-kicker">Portfolio Demonstration</span>
+                <strong>{project.title}</strong>
+                <small>{project.meta}</small>
               </span>
             ))}
           </div>
