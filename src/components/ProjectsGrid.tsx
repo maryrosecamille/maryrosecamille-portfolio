@@ -108,18 +108,6 @@ function PlanPreview() {
 }
 
 /** The three builds as Open Builds rows: plate, eyebrow, title, arrow. */
-function FunnelsPreview() {
-  return (
-    <div className="bento__media bento__fan" aria-hidden="true">
-      {FUNNEL_SHOTS.map((f, i) => (
-        <span key={f.file} className="bento__photo bento__photo--page" style={{ ['--i' as string]: i }}>
-          <img src={thumbSrc(f)} alt="" loading="lazy" decoding="async" />
-        </span>
-      ))}
-    </div>
-  )
-}
-
 function AIPreview() {
   const half = Math.ceil(AI_LEAVES.length / 2)
   const rows = [AI_LEAVES.slice(0, half), AI_LEAVES.slice(half)]
@@ -137,20 +125,6 @@ function AIPreview() {
           </div>
         </div>
       ))}
-    </div>
-  )
-}
-
-function AppsPreview() {
-  return (
-    <div className="bento__media bento__reel bento__reel--row" aria-hidden="true">
-      <div className="bento__reel-track">
-        {[...APP_SHOTS, ...APP_SHOTS].map((src, i) => (
-          <span key={i} className="bento__shot bento__shot--app">
-            <img src={src} alt="" loading="lazy" decoding="async" />
-          </span>
-        ))}
-      </div>
     </div>
   )
 }
