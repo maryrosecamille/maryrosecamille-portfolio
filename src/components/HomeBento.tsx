@@ -19,8 +19,6 @@ import {
 import { aiStack, type StackNode } from '@/data/ai-stack'
 import { profile } from '@/data/profile'
 
-const BASE = import.meta.env.BASE_URL
-
 /**
  * Home's showcase: one card per rail view, each an index of what that view
  * holds, each built from content the portfolio already ships. Every card is
