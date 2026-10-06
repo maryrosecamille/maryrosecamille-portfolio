@@ -35,17 +35,17 @@ const thumbSrc = (f: Funnel) =>
 const PROJECT_SHOTS = [gymFunnel[0], bookingFunnel[0], websiteFunnel[0], gymFunnel[1]].filter(Boolean)
 
 const OFFERS = [
-  { Icon: FunnelSimple, title: 'Service One', note: 'PLACEHOLDER one-liner' },
-  { Icon: Gear, title: 'Service Two', note: 'PLACEHOLDER one-liner' },
-  { Icon: AddressBook, title: 'Service Three', note: 'PLACEHOLDER one-liner' },
-  { Icon: Globe, title: 'Service Four', note: 'PLACEHOLDER one-liner' },
-  { Icon: AppWindow, title: 'Service Five', note: 'PLACEHOLDER one-liner' },
+  { Icon: FunnelSimple, title: 'Executive Support', note: 'Calendar, inbox, meetings & follow-ups' },
+  { Icon: Gear, title: 'Google Workspace', note: 'Organized productivity workflows' },
+  { Icon: AddressBook, title: 'AI-Assisted Workflows', note: 'Gemini & ChatGPT for routine knowledge work' },
+  { Icon: Globe, title: 'Business Operations', note: 'Client communication, tracking & coordination' },
+  { Icon: AppWindow, title: 'Sales & CRM Support', note: 'Salesforce, records & follow-through' },
 ] as const
 
 const CLIENTS = [
-  { name: 'Client Name 1', role: 'PLACEHOLDER - your role for them', work: 'Tag · Tag · Tag', logo: '/placeholders/logo.svg' },
-  { name: 'Client Name 2', role: 'PLACEHOLDER - your role for them', work: 'Tag · Tag · Tag', logo: '/placeholders/logo.svg' },
-  { name: 'Client Name 3', role: 'PLACEHOLDER - your role for them', work: 'Tag · Tag · Tag' },
+  { name: 'Accenture', role: 'Application Support Engineer', work: 'Salesforce · Google Support · Quota Increase' },
+  { name: 'Peak Outsourcing', role: 'B2B Sales & Administrative Support', work: 'Client Ops · Follow-ups · Google Workspace' },
+  { name: 'TELUS International', role: 'Operations CSR', work: 'Technical Support · Sales · Customer Operations' },
 ]
 
 // Three photos of you, fanned. Small copies are fine - the fan shows them under 100px.
@@ -147,7 +147,7 @@ export default function HomeBento() {
 
       {/* Services: the five offers as a compact index. */}
       <Link to="/services" className="bento__card bento__card--services">
-        <CardHead Icon={Stack} title="Services" desc="PLACEHOLDER - what you offer, and to whom." />
+        <CardHead Icon={Stack} title="Services" desc="Executive support, Google Workspace, AI workflows, operations, and CRM support." />
         <ul className="bento__media bento__offers" role="list">
           {OFFERS.map(({ Icon, title, note }, i) => (
             <li key={title} className="bento__offer" style={{ '--i': i } as React.CSSProperties}>
