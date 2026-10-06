@@ -38,20 +38,6 @@ const EXPERIENCE = [
   },
 ]
 
-const CREDENTIALS = [
-  'Google Workspace with Gemini: Foundations of Your AI Workflow',
-  'Gemini in Google Workspace Studio',
-  'Introduction to the Gemini App',
-  'Gemini in Google Vids',
-  'Gemini in Google Drive',
-  'Gemini in Google Chat',
-  'Gemini in Google Meet',
-  'Gemini in Google Sheets',
-  'Gemini in Google Slides',
-  'Gemini in Gmail',
-  'Gemini in Google Docs',
-]
-
 const LEADERSHIP = [
   'Foundations of Leadership',
   'Effective Coaching',
