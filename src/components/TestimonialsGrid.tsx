@@ -5,7 +5,7 @@ const EXPERIENCE = [
     index: '01',
     name: 'Accenture',
     role: 'Application Support Engineer · Aug 2026–Present',
-    daily: 'Supporting Google as part of the Quota Increase team, with Salesforce used in the support workflow.',
+    daily: 'Application Support Engineer at Accenture, supporting Google as part of the Quota Increase team. Salesforce is used in the support workflow.',
     work: ['Application Support', 'Salesforce', 'Google Support'],
   },
   {
@@ -80,7 +80,7 @@ export default function TestimonialsGrid() {
                 <span className="tgrid__client-mark" aria-hidden="true"><SealCheck size={22} weight="duotone" /></span>
                 <span className="tgrid__client-body">
                   <span className="tgrid__client-head"><span className="tgrid__client-name">Google Skills</span><span className="tgrid__client-role">Workspace + Gemini</span></span>
-                  <span className="tgrid__client-daily">{CREDENTIALS.join(' · ')}</span>
+                  <span className="tgrid__client-daily">Google Workspace with Gemini: Foundations of Your AI Workflow · Gemini in Workspace Studio · Gemini App · Vids · Drive · Chat · Meet · Sheets · Slides · Gmail · Docs</span>
                 </span>
               </li>
               <li className="tgrid__client">
@@ -94,14 +94,14 @@ export default function TestimonialsGrid() {
                 <span className="tgrid__client-mark" aria-hidden="true"><Medal size={22} weight="duotone" /></span>
                 <span className="tgrid__client-body">
                   <span className="tgrid__client-head"><span className="tgrid__client-name">Recognition</span><span className="tgrid__client-role">Awards & academics</span></span>
-                  <span className="tgrid__client-daily">Sales Brag Grand Champion · LUWAD Award for Excellence · Consistent Honor Student</span>
+                  <span className="tgrid__client-daily"><strong>Sales Brag Grand Champion</strong> · TELUS sales call competition &nbsp;•&nbsp; <strong>LUWAD Award for Excellence</strong> · CAST, University of Makati &nbsp;•&nbsp; Consistent Honor Student</span>
                 </span>
               </li>
               <li className="tgrid__client">
                 <span className="tgrid__client-mark" aria-hidden="true"><Briefcase size={22} weight="duotone" /></span>
                 <span className="tgrid__client-body">
                   <span className="tgrid__client-head"><span className="tgrid__client-name">Education</span><span className="tgrid__client-role">Business</span></span>
-                  <span className="tgrid__client-daily">BS Business Administration – Human Resource Management, Pateros Technological College (2026) · BS Management Accounting, University of Makati (undergraduate, 2019–2021) · ABM, University of Makati (2017–2019)</span>
+                  <span className="tgrid__client-daily"><strong>BS Business Administration — Human Resource Management</strong><br />Pateros Technological College · 2026<br /><br /><strong>BS Management Accounting</strong><br />University of Makati · Undergraduate, 2019–2021<br /><br /><strong>Accountancy, Business & Management (ABM)</strong><br />University of Makati · 2017–2019</span>
                 </span>
               </li>
             </ul>
