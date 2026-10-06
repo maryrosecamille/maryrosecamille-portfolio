@@ -496,3 +496,26 @@
 .bento__card--about .bento__photo { width: clamp(96px, 7.4vw, 126px) !important; }
 .bento__review { padding: 12px 14px; }
 .bento__review-top b { letter-spacing: -.01em; }
+
+/* Credentials: text-led proof, no generic placeholder artwork. */
+.bento__card--creds .bento__credentials {
+  grid-template-columns: 52px minmax(0, 1fr);
+  justify-content: start;
+  padding: 8px 4px 2px;
+}
+.bento__card--creds .bento__credential-mark {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(145deg, var(--paper), var(--tint));
+  border: 1px solid var(--line);
+}
+.bento__card--creds .bento__credential-copy strong {
+  font-family: var(--font-display);
+  font-size: 14px;
+}
+.bento__card--creds .bento__badge-tag {
+  height: auto;
+  min-height: 26px;
+  padding: 6px 10px;
+  line-height: 1.15;
+}
