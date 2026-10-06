@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { SealCheck, CaretRight, Play, Stack, Coffee } from '@/components/slab'
+import { SealCheck, CaretRight, Stack, Robot } from '@/components/slab'
 import { profile } from '@/data/profile'
 import QuickMenu from './QuickMenu'
 
@@ -47,11 +47,11 @@ export function HomeStats() {
 }
 
 const TILES = [
-  { n: '01', label: 'Projects', to: '/projects', title: 'PLACEHOLDER - projects headline', desc: 'Tell me what to put here.', img: '/placeholders/project-1.jpg' },
-  { n: '02', label: 'Services', to: '/services', title: 'PLACEHOLDER - services headline', desc: 'Tell me what to put here.', Icon: Stack },
-  { n: '03', label: 'Showcase', to: '/showcase', title: 'PLACEHOLDER - your flagship', desc: 'Tell me what to put here.', Icon: Coffee, accent: true },
+  { n: '01', label: 'Projects', to: '/projects', title: 'Executive operations, made visible', desc: 'Three practical demonstrations covering executive organization, meetings, inboxes, and AI-assisted workflows.', img: profile.avatarSrc },
+  { n: '02', label: 'Services', to: '/services', title: 'Support that keeps work moving', desc: 'Executive support, Google Workspace, AI-assisted workflows, operations, and CRM support.', Icon: Stack },
+  { n: '03', label: 'AI Workflow', to: '/projects', title: 'Meeting-to-Action', desc: 'See how meeting notes become summaries, decisions, action items, and follow-up drafts.', Icon: Robot, accent: true },
   { n: '04', label: 'Experience', to: '/testimonials', title: 'Operations, support & credentials', desc: 'Professional experience backed by Google Workspace, Gemini, and leadership training.', img: '/placeholders/testimonial-1.jpg' },
-  { n: '05', label: 'About', to: '/about', title: `Hi, I'm ${profile.firstName}.`, desc: 'PLACEHOLDER - one line about you.', img: profile.avatarSrc },
+  { n: '05', label: 'About', to: '/about', title: `Hi, I'm ${profile.firstName}.`, desc: 'Operations, technical support, Google Workspace, and AI brought into executive support.', img: profile.avatarSrc },
 ] as const
 
 export function HomeExplore() {
@@ -82,18 +82,13 @@ export function HomeExplore() {
       {/* A header that links carries its chevron on the title itself. */}
       <div className="hsec">
         <h2 className="hsec__title">
-          <Link to="/testimonials" className="hsec__link">
+          <Link to="/experience" className="hsec__link">
             Experience & credentials
             <CaretRight size={16} weight="bold" aria-hidden="true" />
           </Link>
         </h2>
       </div>
-      <Link to="/testimonials" className="hproof" aria-label="View professional experience and credentials.">
-        <span className="hproof__stage">
-          <img src="/placeholders/testimonial-1.jpg" alt="" loading="lazy" />
-          <span className="hproof__play" aria-hidden="true"><Play size={20} weight="fill" /></span>
-          <span className="hproof__dur" aria-hidden="true">0:00</span>
-        </span>
+      <Link to="/experience" className="hproof" aria-label="View professional experience and credentials.">
         <span className="hproof__copy">
           <span className="hproof__title">Application support, customer operations, sales, technical support, and Google Workspace training.</span>
           <span className="hproof__meta">Professional background & credentials</span>
