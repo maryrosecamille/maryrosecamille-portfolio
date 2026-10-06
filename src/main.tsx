@@ -11,7 +11,6 @@ import { restorePrefs } from '@/lib/a11y'
 const ProjectsView = lazy(() => import('@/views/ProjectsView'))
 const ServicesView = lazy(() => import('@/views/ServicesView'))
 const AIWorkflowsView = lazy(() => import('@/views/AIWorkflowsView'))
-const ShowcaseView = lazy(() => import('@/views/ShowcaseView'))
 const TestimonialsGrid = lazy(() => import('@/components/TestimonialsGrid'))
 const AboutGrid = lazy(() => import('@/components/AboutGrid'))
 const ContactGrid = lazy(() => import('@/components/ContactGrid'))
@@ -68,7 +67,6 @@ createRoot(container).render(
           <Route path="/projects" element={<ProjectsView />} />
           <Route path="/services" element={<ServicesView />} />
           <Route path="/ai-workflows" element={<AIWorkflowsView />} />
-          <Route path="/showcase" element={<ShowcaseView />} />
           <Route path="/experience" element={<TestimonialsGrid />} />
           <Route path="/testimonials" element={<Navigate to="/experience" replace />} />
           <Route path="/about" element={<AboutGrid />} />
