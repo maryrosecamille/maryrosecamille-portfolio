@@ -106,7 +106,50 @@ function BuildPanel({ build }: { build: Build }) {
     </div>
   )
 }
-export const TicketingPanel = () => <BuildPanel build={BUILDS[0]} />
+export const TicketingPanel = () => (
+  <SectionWindow label="Executive Command Center · Portfolio Demonstration">
+    <article style={{ padding: 'clamp(20px, 4vw, 48px)', maxWidth: 980, margin: '0 auto' }}>
+      <p style={{ margin: '0 0 8px', fontSize: 12, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', opacity: .6 }}>Portfolio Demonstration · Fictional executive data</p>
+      <h2 style={{ margin: '0 0 14px', fontSize: 'clamp(28px, 4vw, 46px)', lineHeight: 1.05 }}>Executive Command Center</h2>
+      <p style={{ margin: '0 0 30px', maxWidth: 760, fontSize: 16, lineHeight: 1.65, opacity: .78 }}>A Google Sheets–style operating system designed to give a busy executive one clear view of priorities, meetings, follow-ups, and deadlines. The workbook demonstrates how I would organize recurring executive information and make next actions easier to see.</p>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(150px,1fr))', gap: 12, marginBottom: 30 }}>
+        {[
+          ['5', 'Workspace views'],
+          ['4', 'Core trackers'],
+          ['1', 'Executive dashboard'],
+          ['100%', 'Fictional demo data'],
+        ].map(([value, label]) => (
+          <div key={label} style={{ padding: 18, border: '1px solid color-mix(in srgb, currentColor 14%, transparent)', borderRadius: 16 }}>
+            <strong style={{ display: 'block', fontSize: 26 }}>{value}</strong>
+            <span style={{ fontSize: 12, opacity: .62 }}>{label}</span>
+          </div>
+        ))}
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(240px,1fr))', gap: 14 }}>
+        {[
+          ['Dashboard', 'At-a-glance KPIs and status visibility for executive priorities and follow-through.'],
+          ['Priorities', 'Tracks priority, owner, due date, status, and the next action required.'],
+          ['Meetings', 'Organizes meeting schedules, purpose, preparation notes, and resulting actions.'],
+          ['Follow-Ups', 'Keeps commitments visible so important replies and check-ins do not disappear in the inbox.'],
+          ['Deadlines', 'Centralizes time-sensitive deliverables with ownership and status tracking.'],
+          ['Controls', 'Uses formulas, dropdowns, conditional formatting, and structured fields to reduce manual ambiguity.'],
+        ].map(([title, body]) => (
+          <section key={title} style={{ padding: 20, borderRadius: 18, background: 'color-mix(in srgb, currentColor 5%, transparent)' }}>
+            <h3 style={{ margin: '0 0 8px', fontSize: 17 }}>{title}</h3>
+            <p style={{ margin: 0, fontSize: 14, lineHeight: 1.55, opacity: .72 }}>{body}</p>
+          </section>
+        ))}
+      </div>
+
+      <div style={{ marginTop: 28, padding: 20, borderLeft: '3px solid currentColor', background: 'color-mix(in srgb, currentColor 4%, transparent)' }}>
+        <strong>What this demonstrates</strong>
+        <p style={{ margin: '8px 0 0', lineHeight: 1.6, opacity: .74 }}>Executive organization · Google Sheets workflow design · priority management · meeting coordination · follow-up discipline · deadline tracking · dashboard thinking</p>
+      </div>
+    </article>
+  </SectionWindow>
+)
 export const FrameworkPanel = () => <BuildPanel build={BUILDS[1]} />
 export const WorkflowPanel = () => <BuildPanel build={BUILDS[2]} />
 
