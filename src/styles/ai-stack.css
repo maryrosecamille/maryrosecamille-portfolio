@@ -533,3 +533,49 @@
      arrives there rather than travelling. */
   .ai-stack__caret { transition: none; }
 }
+
+
+/* Dedicated AI Workflows page */
+.aiworkflows {
+  height: auto !important;
+  min-height: 100%;
+  grid-template-rows: auto auto;
+  overflow: visible !important;
+  padding-bottom: clamp(72px, 8vh, 110px);
+}
+.aiworkflows__glass {
+  height: auto !important;
+  min-height: 620px;
+  padding: clamp(24px, 3vw, 42px);
+}
+.aiworkflows__intro {
+  max-width: 760px;
+  margin: 0 auto clamp(32px, 4vw, 54px);
+  text-align: center;
+}
+.aiworkflows__intro > span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  color: var(--muted);
+}
+.aiworkflows__intro > strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.2vw, 32px);
+  line-height: 1.15;
+  color: var(--navy);
+}
+.aiworkflows__intro > p {
+  margin: 10px auto 0;
+  max-width: 650px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+html:has(.aiworkflows), body:has(.aiworkflows), #root:has(.aiworkflows) {
+  height: auto;
+  min-height: 100%;
+  overflow-y: auto;
+}
