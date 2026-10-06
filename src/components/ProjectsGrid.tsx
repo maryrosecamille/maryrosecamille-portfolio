@@ -45,10 +45,10 @@ const FILTERS: { key: Cat | 'all'; label: string }[] = [
 ]
 
 /** Example tool marks, from public/icons. Swap for what you build with. */
-const GHL = '/icons/gohighlevel.png'
-const CLAUDE_CODE = '/icons/claude-code-logo.png'
-const CODEX = '/icons/ai/codex.svg'
-const HERMES = '/icons/ai/hermes.svg'
+const GHL = '/icons/googleworkspace.svg'
+const CLAUDE_CODE = '/icons/googleworkspace.svg'
+const CODEX = '/icons/openai.svg'
+const HERMES = '/icons/googleworkspace.svg'
 const PLAY = '/icons/ai/googleplay.svg'
 const CHROME = '/icons/ai/googlechrome.svg'
 const EXPO = '/icons/ai/expo.svg'
@@ -71,9 +71,9 @@ const BUILD_DESC = 'PLACEHOLDER - tell me what to put here: two lines on what th
 /** The three featured builds: each its own card in the stack, each its own
  *  pop-up. */
 const BUILDS: Project[] = [
-  { id: 'ticketing', cat: 'work', index: '03', kicker: 'Placeholder category', title: 'Featured Project One', desc: BUILD_DESC, Icon: () => <Ticket size={20} weight="duotone" />, logos: [GHL], eyebrow: 'Featured build', Section: TicketingPanel, Preview: () => null },
-  { id: 'framework', cat: 'ai', index: '04', kicker: 'Placeholder category', title: 'Featured Project Two', desc: BUILD_DESC, Icon: () => <Robot size={20} weight="duotone" />, logos: [CLAUDE_CODE], eyebrow: 'Featured build', Section: FrameworkPanel, Preview: () => null },
-  { id: 'workflow', cat: 'ai', index: '05', kicker: 'Placeholder category', title: 'Featured Project Three', desc: BUILD_DESC, Icon: () => <FlowArrow size={20} weight="duotone" />, logos: [CLAUDE_CODE, CODEX, HERMES], eyebrow: 'Featured build', Section: WorkflowPanel, Preview: () => null },
+  { id: 'ticketing', cat: 'work', index: '03', kicker: 'Portfolio demonstration', title: 'Executive Command Center', desc: 'A Google Workspace concept for tracking priorities, meetings, deadlines, owners, and follow-ups in one executive view.', Icon: () => <Ticket size={20} weight="duotone" />, logos: [GHL], eyebrow: 'Demonstration', Section: TicketingPanel, Preview: () => null },
+  { id: 'framework', cat: 'ai', index: '04', kicker: 'Portfolio demonstration', title: 'AI Meeting-to-Action Workflow', desc: 'A Gemini-assisted workflow concept that turns meeting notes into summaries, decisions, action items, and follow-up drafts.', Icon: () => <Robot size={20} weight="duotone" />, logos: [CLAUDE_CODE, CODEX], eyebrow: 'Demonstration', Section: FrameworkPanel, Preview: () => null },
+  { id: 'workflow', cat: 'work', index: '05', kicker: 'Portfolio demonstration', title: 'Executive Inbox & Follow-Up System', desc: 'A structured Gmail workflow concept for prioritizing messages, drafting responses, flagging decisions, and tracking follow-ups.', Icon: () => <FlowArrow size={20} weight="duotone" />, logos: [GHL], eyebrow: 'Demonstration', Section: WorkflowPanel, Preview: () => null },
 ]
 
 const leaves = (n: StackNode): StackNode[] => (n.children?.length ? n.children.flatMap(leaves) : [n])
@@ -99,13 +99,13 @@ function WorkflowsPreview() {
 function PlanPreview() {
   return (
     <div className="bento__media bento__doc" aria-hidden="true">
-      <span className="bento__doc-eyebrow">Placeholder document</span>
-      <span className="bento__doc-title">Your document title here.</span>
+      <span className="bento__doc-eyebrow">Executive operations</span>
+      <span className="bento__doc-title">Executive Operations Playbook</span>
       <span className="bento__doc-flow">
-        <i>Step</i>
-        <i>Step</i>
-        <i>Step?</i>
-        <i className="is-on">Result</i>
+        <i>Priorities</i>
+        <i>Meetings</i>
+        <i>Follow-ups</i>
+        <i className="is-on">Clarity</i>
       </span>
       <span className="bento__doc-line" />
       <span className="bento__doc-line bento__doc-line--short" />
@@ -162,11 +162,9 @@ function AppsPreview() {
 }
 
 const PROJECTS: Project[] = [
-  { id: 'workflows', cat: 'work', index: '01', title: 'Project Title', desc: 'PLACEHOLDER - tell me what to put here: what these screens show.', Icon: FlowIcon, logos: [GHL], eyebrow: 'Screenshots', Section: AutomationsPanel, span: 2, Preview: WorkflowsPreview },
-  { id: 'plan', cat: 'work', index: '02', title: 'Sample Document', desc: 'PLACEHOLDER - tell me what to put here: the document this opens.', Icon: PlanIcon, logos: [GHL], eyebrow: 'Sample document', Section: PlanPanel, Preview: PlanPreview },
-  { id: 'funnels', cat: 'sites', index: '06', title: 'Pages and sites', desc: 'PLACEHOLDER - the pages in this reel. Spin the reel.', Icon: GlobeIcon, logos: [GHL], eyebrow: 'Pages and sites', Section: BarrelPanel, Preview: FunnelsPreview },
-  { id: 'ai', cat: 'ai', index: '07', title: 'Your systems title here', desc: 'PLACEHOLDER - tell me what to put here: the systems you run.', Icon: SparkIcon, logos: [CLAUDE_CODE, CODEX, HERMES], eyebrow: 'Your systems', Section: AIWindow, Preview: AIPreview },
-  { id: 'apps', cat: 'apps', index: '08', title: 'Apps and tools', desc: 'PLACEHOLDER - tell me what to put here: the apps and tools you ship.', Icon: DeviceIcon, logos: [PLAY, EXPO, CHROME], eyebrow: 'Your apps', Section: AppsWindow, span: 2, Preview: AppsPreview },
+  { id: 'workflows', cat: 'work', index: '01', title: 'Executive Workflow Concepts', desc: 'Visual examples of how recurring executive and client-support tasks can be organized into clear, repeatable workflows.', Icon: FlowIcon, logos: [GHL], eyebrow: 'Workflow concepts', Section: AutomationsPanel, span: 2, Preview: WorkflowsPreview },
+  { id: 'plan', cat: 'work', index: '02', title: 'Executive Operations Playbook', desc: 'A sample operating plan for turning priorities, communication, meetings, and follow-ups into a consistent support rhythm.', Icon: PlanIcon, logos: [GHL], eyebrow: 'Sample document', Section: PlanPanel, Preview: PlanPreview },
+  { id: 'ai', cat: 'ai', index: '07', title: 'Google Workspace + AI Toolkit', desc: 'A practical view of the Google Workspace and AI tools I use or train with for executive and operations support.', Icon: SparkIcon, logos: [GHL, CODEX], eyebrow: 'Tools & workflows', Section: AIWindow, Preview: AIPreview },
 ]
 
 /** The icon tile, or the real marks stacked horizontally in its place. */
@@ -300,9 +298,9 @@ export default function ProjectsGrid() {
       <header className="pgrid__head">
         <span className="pgrid__eyebrow">Projects</span>
         <h1 className="pgrid__title" id="projects-title">
-          Your projects headline goes right here.
+          Executive operations, made visible.
         </h1>
-        <p className="pgrid__lede">PLACEHOLDER - tell me what to put here: one line on the work below. Open a card to see it full size.</p>
+        <p className="pgrid__lede">Demonstration case studies showing how I approach executive organization, follow-through, Google Workspace, and AI-assisted workflows. Open a card to explore.</p>
       </header>
 
       {phone && (
