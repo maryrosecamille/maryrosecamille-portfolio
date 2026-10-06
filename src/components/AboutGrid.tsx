@@ -2,9 +2,11 @@ import type { CSSProperties } from 'react'
 import { ArrowUpRight, MapPin } from '@/components/slab'
 import { profile } from '@/data/profile'
 
-const GWS = { src: '/icons/googleworkspace.svg', name: 'Google Workspace' }
-const GEMINI = { src: '/icons/googleworkspace.svg', name: 'Gemini for Workspace' }
-const CHATGPT = { src: '/icons/openai.svg', name: 'ChatGPT' }
+const BASE = import.meta.env.BASE_URL
+
+const GWS = { src: `${BASE}icons/googleworkspace.svg`, name: 'Google Workspace' }
+const GEMINI = { src: `${BASE}icons/googleworkspace.svg`, name: 'Gemini for Workspace' }
+const CHATGPT = { src: `${BASE}icons/openai.svg`, name: 'ChatGPT' }
 
 type Capability = {
   index: string
@@ -60,7 +62,7 @@ export default function AboutGrid() {
           <div className="agrid__bar">
             <span className="agrid__cell">
               <span className="agrid__cell-mark agrid__cell-mark--img">
-                <img src="/icons/googleworkspace.svg" alt="" loading="lazy" decoding="async" />
+                <img src={`${BASE}icons/googleworkspace.svg`} alt="" loading="lazy" decoding="async" />
               </span>
               <span className="agrid__cell-copy">
                 <span className="agrid__cell-title">Google Workspace + Gemini</span>
@@ -78,7 +80,7 @@ export default function AboutGrid() {
 
             <a className="agrid__cell agrid__cell--wide" href="https://www.linkedin.com/in/maryrose-camille-va/" target="_blank" rel="noreferrer">
               <span className="agrid__cell-mark agrid__cell-mark--plain">
-                <img src="/icons/linkedin.svg" alt="" loading="lazy" decoding="async" />
+                <img src={`${BASE}icons/linkedin.svg`} alt="" loading="lazy" decoding="async" />
               </span>
               <span className="agrid__cell-copy">
                 <span className="agrid__cell-title">Connect on LinkedIn</span>
