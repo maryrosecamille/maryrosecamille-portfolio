@@ -28,7 +28,8 @@ const SAMPLES: Sample[] = [
   { file: 'project-4.jpg', label: 'Project Screenshot 4' },
 ]
 
-const srcOf = (s: Sample) => `/placeholders/${encodeURIComponent(s.file)}`
+const BASE = import.meta.env.BASE_URL
+const srcOf = (s: Sample) => `${BASE}placeholders/${encodeURIComponent(s.file)}`
 
 export default function WorkflowSamples() {
   const doubled = useMemo(() => [...SAMPLES, ...SAMPLES], [])
