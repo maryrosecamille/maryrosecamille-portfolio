@@ -3,6 +3,8 @@ import { mobileApps, type AppProject } from '@/data/projects'
 import AIStack from '@/components/AIStack'
 import Flagship from '@/components/Flagship'
 
+const BASE = import.meta.env.BASE_URL
+
 /* Browser extensions - small Chrome tools, shown as a compact two-up block
    inside this same section (not a new section of their own). */
 type Extension = {
@@ -17,14 +19,14 @@ const EXTENSIONS: Extension[] = [
   {
     name: 'Extension Name One',
     desc: 'PLACEHOLDER - tell me what to put here: what the extension does and who uses it.',
-    imageSrc: '/placeholders/extension-1.jpg',
+    imageSrc: `${BASE}placeholders/extension-1.jpg`,
     imageAlt: 'Extension one popup placeholder',
     Icon: Key,
   },
   {
     name: 'Extension Name Two',
     desc: 'PLACEHOLDER - tell me what to put here: what the extension does and who uses it.',
-    imageSrc: '/placeholders/extension-2.jpg',
+    imageSrc: `${BASE}placeholders/extension-2.jpg`,
     imageAlt: 'Extension two popup placeholder',
     Icon: Browser,
   },
