@@ -50,7 +50,7 @@
 .home__line { display: block; }
 
 @media (min-width: 1100px) {
-  .home__line { white-space: nowrap; }
+  .home__line { white-space: normal; }
 }
 
 .home__cta {
@@ -123,19 +123,14 @@
   min-width: 0;
   padding: clamp(14px, 2vh, 24px) clamp(14px, 1.4vw, 24px);
   border-radius: calc(var(--radius-card) + 6px);
-  /* White on the left, cooling to a soft blue on the right - one sweep, so
-     the panel reads as a single sheet, not a tinted box. */
+  /* Warm ivory editorial sheet: intentionally neutral, with no cool-blue cast. */
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0) 38%),
-    linear-gradient(100deg,
-      rgba(255, 255, 255, 0.97) 0%,
-      rgba(255, 255, 255, 0.93) 42%,
-      rgba(219, 231, 255, 0.95) 76%,
-      rgba(186, 209, 255, 0.96) 100%);
+    linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,255,255,.16)),
+    linear-gradient(105deg, rgba(252,249,244,.98), rgba(245,240,232,.94));
   box-shadow:
     inset 0 0 0 1px var(--line),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    0 30px 70px -40px rgba(6, 12, 26, 0.5);
+    inset 0 1px 0 rgba(255,255,255,.72),
+    0 26px 64px -42px rgba(59,43,36,.32);
 }
 [data-theme='dark'] .home__glass {
   background:
@@ -284,4 +279,10 @@
   /* The floating pill is fixed at the top of the document down here, so the
      headline has to start below it or the first line reads through the navy. */
   .home { padding-top: 104px; }
+}
+
+/* Editorial headline sizing: keeps the full positioning statement visible on desktop. */
+@media (min-width: 1100px) {
+  .home__title { font-size: clamp(30px, 3vw, 58px); max-width: 100%; }
+  .home__headline { overflow: visible; }
 }
