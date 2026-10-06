@@ -6,6 +6,8 @@ import { AppsSection } from './Projects'
 import { useFunnelModal } from './FunnelModal'
 import { websiteFunnel } from '@/data/funnels'
 
+const BASE = import.meta.env.BASE_URL
+
 const FunnelBarrel = lazy(() => import('./FunnelBarrel'))
 
 /**
@@ -81,7 +83,7 @@ export function PlanPanel() {
         host="maryrose-camille-va"
         path="/executive-operations-playbook"
       />
-      <LiveFrame src="/placeholders/sample-plan.html" title="Sample document" />
+      <LiveFrame src={`${BASE}placeholders/sample-plan.html`} title="Sample document" />
     </div>
   )
 }
