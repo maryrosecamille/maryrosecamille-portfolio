@@ -89,23 +89,6 @@ export function PlanPanel() {
 
 /** `src` is a local page framed in the panel; `path` is what the fake
  *  address bar shows. Point these at your own pages. */
-type Build = { id: string; label: string; src: string; path: string; Icon: Icon }
-
-const BUILDS: Build[] = [
-  { id: 'ticketing', label: 'Executive Command Center — Portfolio Demonstration', src: '/placeholders/sample-plan.html?doc=1', path: '/demo/executive-command-center', Icon: Ticket },
-  { id: 'framework', label: 'AI Meeting-to-Action Workflow — Portfolio Demonstration', src: '/placeholders/sample-plan.html?doc=2', path: '/demo/meeting-to-action', Icon: Robot },
-  { id: 'workflow', label: 'Executive Inbox & Follow-Up System — Portfolio Demonstration', src: '/placeholders/sample-plan.html?doc=3', path: '/demo/inbox-follow-up', Icon: FlowArrow },
-]
-
-/** One build, framed, open on arrival. */
-function BuildPanel({ build }: { build: Build }) {
-  return (
-    <div className="ppanel ppanel--frame">
-      <FrameBar host="maryrose-camille-va" path={build.path} />
-      <LiveFrame src={build.src} title={build.label} />
-    </div>
-  )
-}
 export const TicketingPanel = () => (
   <SectionWindow label="Executive Command Center · Portfolio Demonstration">
     <article style={{ padding: 'clamp(20px, 4vw, 48px)', maxWidth: 980, margin: '0 auto' }}>
